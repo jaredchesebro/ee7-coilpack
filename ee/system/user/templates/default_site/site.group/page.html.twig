@@ -1,0 +1,20 @@
+{% extends "ee::site._layout" %}
+
+{% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
+
+{% block hero %}
+    {% include 'ee::partials/_hero' %}
+{% endblock %}
+
+{% block contents %}
+
+    {% for row in entry.page_builder %}
+        <!-- BLOCK TYPE:{{ row.field.field_name }} | INDEX:{{ loop.index }} -->
+        <section id="{{ row.field.field_name }}-{{ loop.index }}" data-block="{{ row.field.field_name }}">
+            {% include 'ee::partials/_' ~ row.field.field_name %}
+        </section>
+    {% endfor %}
+
+{% endblock %}
+

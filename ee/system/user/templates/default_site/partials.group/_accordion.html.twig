@@ -1,0 +1,28 @@
+{% set accordionId = 'accordion-' ~ loop.index %}
+
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="accordion" id="{{ accordionId }}">
+                {% for accordion in row %}
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}" aria-expanded="false" aria-controls="collapse-{{ loop.index }}">
+                            {{ accordion.heading }}
+                        </button>
+                    </h2>
+                    <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#{{ accordionId }}">
+                        <div class="accordion-body">
+                            {{ accordion.content|raw }}
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>

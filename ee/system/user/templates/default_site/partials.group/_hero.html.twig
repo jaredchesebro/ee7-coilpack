@@ -1,0 +1,24 @@
+{% set bg = '' %}
+{% set classes = 'bg-dark bg-gradient ' %}
+{% set heroTitle = entry.title %}
+
+{% for row in entry.hero_content %}
+    {% if row.background_image != '' %}
+        {% set bg = row.background_image %}
+        {% set classes = '' %}
+    {% endif %}
+    {% if row.heading != '' %}
+        {% set heroTitle = row.heading %}
+    {% endif %}
+
+    <header class="{{ classes }}text-white py-5" {% if bg != '' %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1>{{ heroTitle }}</h1>
+                    {% if row.subheading %}<p>{{ row.subheading }}</p>{% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+{% endfor %}

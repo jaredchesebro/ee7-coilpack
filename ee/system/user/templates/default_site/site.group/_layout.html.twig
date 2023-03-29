@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ global.lang }}">
+<head>
+    {% include 'ee::partials/_head' %}
+</head>
+<body>
+	{% include 'ee::partials/_header' %}
+    <main>
+        {% block hero %}{% endblock %}
+        {% block contents %}{% endblock %}
+    </main>
+	{% include 'ee::partials/_footer' %}
+    <script src="{{ mix('/assets/js/main.js') }}"></script>
+</body>
+</html>

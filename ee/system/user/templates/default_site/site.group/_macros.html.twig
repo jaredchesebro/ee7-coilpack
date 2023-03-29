@@ -1,0 +1,7 @@
+{% macro links(href,text,class,target) %}
+    <li>
+        <a href="{{ href }}"{% if class != '' %} class="{{ class }}"{% endif %}{% if target != '' %} target="{{ target }}"{% endif %}>
+            {{ text }}
+        </a>
+    </li>
+{% endmacro %}

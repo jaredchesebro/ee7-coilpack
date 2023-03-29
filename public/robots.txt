@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://ee7-coilpack.ddev.site/sitemap.xml

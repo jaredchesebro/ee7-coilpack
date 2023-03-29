@@ -1,0 +1,568 @@
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+    1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+    2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+    3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+    4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+    5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+    6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+    7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+    8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+    9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+      Additional Terms and Conditions
+
+      License Validation - ExpressionEngine Add-Ons and ExpressionEngine Pro (collectively “EE Add-Ons”) require a valid site license and are subject to the terms and conditions of the developer of the relevant EE Add-On. Servers on which ExpressionEngine is installed will periodically provide information to Licensor for the purpose of license validation. This information includes the site domain, ExpressionEngine version, and a list of EE Add-Ons along with their version numbers. By installing and using the Work, you consent to the transmission of this information, as described above. Unlicensed EE Add-Ons may be limited in functionality by Licensor and/or the third-party developer of the relevant EE Add-On.
+
+    END OF TERMS AND CONDITIONS
+
+    APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+
+
+## Runtime Library Exception to the Apache 2.0 License: ##
+
+
+    As an exception, if you use this Software to compile your source code and
+    portions of this Software are embedded into the binary product as a result,
+    you may redistribute such product without providing attribution as would
+    otherwise be required by Sections 4(a), 4(b) and 4(d) of the License.
+
+
+
+EXPRESSIONENGINE SUBCOMPONENTS:
+
+ExpressionEngine includes a number of subcomponents with
+separate copyright notices and license terms. Your use of the source
+code for the these subcomponents is subject to the terms and
+conditions of the following licenses.
+
+The following subcomponents are licensed under the Apache 2.0 License:
+    PHP Option Type
+
+
+
+The following subcomponents are licensed under the MIT License:
+
+    The CodeMirror component:
+        Copyright (C) 2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+
+    The Popper.js component:
+        Copyright © 2016 Federico Zivolo and contributors
+
+    The emoji-data component:
+        Copyright (c) 2013 Cal Henderson
+
+    The IpAnonymizer component:
+        Copyright (c) 2016 Geert Wirken
+
+    The jQuery and jQuery UI component:
+        Copyright 2014 jQuery Foundation and other contributors
+        http://jquery.com/
+
+    The jQuery Cycle2 component:
+        Copyright © 2012-2014 M. Alsup
+
+    The jQuery markItUp component:
+        Copyright (C) 2007-2010 Jay Salvat
+
+    The jQuery MiniColors component:
+        Copyright (c) Cory LaViska for A Beautiful Site, LLC: http://www.abeautifulsite.net/
+
+    The jQuery Nestable component:
+        Copyright © 2012 David Bushell
+
+    The jQuery TableSorter component:
+        Copyright (c) 2007 Christian Bach
+
+    The jQuery Templates component:
+        Copyright (c) Software Freedom Conservancy, Inc.
+
+    The jQuery UI Touch Punch component:
+        Copyright 2011–2014, Dave Furfero
+
+    The jQuery Validation component:
+        Copyright (c) 2014 Jörn Zaefferer
+
+    The Mexitek\PHPColors component:
+        Copyright © 2018 Arlo Carreon, http://arlocarreon.com
+
+    The random_compat component:
+        Copyright (c) 2015 Paragon Initiative Enterprises
+
+    The React component:
+        Copyright (c) Facebook, Inc. and its affiliates.
+
+    The underscore.js component:
+        Copyright (c) 2009-2018 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+
+    The CKEditor component:
+        Copyright (c) 2003-2020 CKSource
+
+    The Composer bin plugin
+        Copyright (c) 2016 Bilal Amarni
+
+    Flysystem
+        Copyright (c) 2013-2022 Frank de Jonge
+
+    Flysystem Cached CachedAdapter
+        Copyright (c) 2013-2022 Frank de Jonge
+
+    League Mime Type Detection
+        Copyright (c) 2013-2022 Frank de Jonge
+
+    Caching Interface
+        Copyright (c) 2015 PHP Framework Interoperability Group
+
+    Symfony Polyfill / Ctype
+        Copyright (c) 2018-2019 Fabien Potencier
+
+    PHP CSS Parser
+        Copyright (c) 2011 Raphael Schweikert, https://www.sabberworm.com/
+
+    Constant-Time Encoding:
+        Copyright (c) 2016 - 2022 Paragon Initiative Enterprises
+
+    TOTP / HOTP library in PHP:
+        Copyright (c) 2014-2016 Florent Morselli
+
+    Safe PHP:
+        Copyright (c) 2018 TheCodingMachine
+
+    The Selection and Range components use code heavily inspired by:
+
+        Rangy: Copyright (c) 2014 Tim Down
+        IERange: Copyright (c) 2009 Tim Cameron Ryan
+
+
+    MIT License
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+
+The following subcomponents are licensed with the BSD-2-Clause license:
+
+    For Aura.Cli
+        Copyright (c) 2011-2017, Aura for PHP
+        All rights reserved.
+
+    For the PHP SimplePie's IPv6 component:
+        Copyright (c) 2003-2005 The PHP Group
+
+    For QR Code generator
+        Copyright (c) 2017, Ben Scholzen 'DASPRiD'
+        All rights reserved.
+
+    For Assert
+        Copyright (c) 2011-2013, Benjamin Eberlei
+        All rights reserved.
+
+    For PHP 7.1 enums
+        Copyright (c) 2017, Ben Scholzen 'DASPRiD'
+        All rights reserved.
+
+    BSD-2-Clause license:
+        Redistribution and use in source and binary forms, with or without modification, are
+        permitted provided that the following conditions are met:
+
+        * Redistributions of source code must retain the above copyright notice, this list of
+        conditions and the following disclaimer.
+
+        * Redistributions in binary form must reproduce the above copyright notice, this list
+        of conditions and the following disclaimer in the documentation and/or other materials
+        provided with the distribution.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
+        OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+        AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS
+        AND CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+        CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+        OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
+
+The following subcomponents are licensed with a BSD-3-Clause license:
+
+    For the PHP SimplePie component:
+
+        Copyright (c) 2004-2016, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+        All rights reserved.
+        For a copy of this license, see licenses/LICENSE-simplepie.txt
+
+    For the jQuery dataTables component:
+
+        Copyright (c) 2008-2010, Allan Jardine
+        All rights reserved.
+        For a copy of this license, see licenses/LICENSE-jquery-datatables.txt
+
+    For the PHP Markdown component:
+
+        PHP Markdown Lib
+        Copyright (c) 2004-2018 Michel Fortin
+        <https://michelf.ca/>
+        All rights reserved.
+
+        Based on Markdown
+        Copyright (c) 2003-2006 John Gruber
+        <https://daringfireball.net/>
+        All rights reserved.
+
+        For a copy of this license, see licenses/LICENSE-markdown.txt
+
+    For the PHP SmartyPants component:
+
+        PHP SmartyPants
+        Copyright (c) 2005-2013 Michel Fortin
+        <http://michelf.ca/>
+        All rights reserved.
+
+        Original SmartyPants
+        Copyright (c) 2003-2004 John Gruber
+        <http://daringfireball.net/>
+        All rights reserved.
+
+        For a copy of this license, see licenses/LICENSE-smartypants.txt
+
+    PHP dotenv
+        Copyright (c) 2014, Graham Campbell.
+        Copyright (c) 2013, Vance Lucas.
+
+For the Simple Pie's idna_convert.class.php component:
+
+    Copyright (c) 2004-2007 phlyLabs Berlin, http://phlylabs.de
+    Licensed under LGPL-2.1
+    For a copy of this license, see licenses/LICENSE-idna_convert.txt
+
+For the FontAwesome fonts component:
+
+    Copyright (c) 2015, Dave Gandy
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    For a copy of this license, see licenses/LICENSE-fontawesome.txt
+
+For CKEditor WYSIWYG in the RTE fieldtype:
+  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL CKSOURCE OR ITS LICENSORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For Redactor in the RTE fieldtype:
+    Unless you have been granted prior, written explicit consent from Imperavi LLC, you may not:
+
+    Reproduce, distribute, or transfer the Software as a sole product, or portions thereof, to any third party.
+    Sell, rent, lease, assign, or sublet the Software as a sole product or portions thereof.
+    Grant rights to any other person.
+    Use the software in violation of any European Union or international laws or regulations.
+
+    Display of Copyright Notices
+
+    All copyright and proprietary notices and logos (if any) of Redactor and/or Imperavi LLC within the Software files must remain intact.
+
+    Making copies
+
+    You may make copies of the Software for backup purposes, provided that you reproduce the Software in its original form and with all proprietary notices on the back-up copy. You may include copies of the Software as an integral part of your product (according to the purchased License tier and Permitted Use stated above).
+
+    Software Modification
+
+    You may alter, modify, or extend the Software for use as an integral part of your product or service according to the License tier, or commission a third-party to perform modifications for you, but you may not resell, redistribute or transfer the modified or derivative version of the Software as a sole product without prior written consent from Imperavi LLC. Components from the Software may not be extracted and used in other programs without prior written consent from Imperavi LLC.
+
+    Indemnity
+
+    You agree to indemnify and hold harmless Imperavi LLC for any expenses, liabilities, damages, settlements or fees from third-party claims, actions or suits arising from your misuse of the Software.
+
+    Disclaimer Of Warranty
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF QUALITY, PERFORMANCE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. FURTHER, IMPERAVI LLC DOES NOT WARRANT THAT THE SOFTWARE OR ANY RELATED SERVICE WILL ALWAYS BE AVAILABLE.
+
+
+For the ExpressionEngine Pro:
+
+    Copyright (c) 2021, Packet Tide
+
+    Last updated: October 5, 2021
+
+    This License Agreement (the “Agreement”) is a legal agreement between you and Packet Tide LLC (“Packet Tide”) for the use of the ExpressionEngine Pro Add-on (the “Software” or “EE Pro”). By purchasing any version of the Software you agree to be bound by the terms and conditions of this license agreement as well as the Terms of Service (the “Terms of Service”) available at expressionengine.com/terms-of-service. To the extent that the terms and conditions of this Agreement conflict with the Terms of Service, this Agreement controls.
+
+    Packet Tide reserves the right to modify or alter this Agreement at any time, for any reason, by posting the revised terms on expressionengine.com/license and/or providing a copy to you via email. Revised Terms shall be effective as of the time they are posted, but will not apply retroactively. Your continued use of the Software after the posting of revised license agreement constitutes your acceptance of the revised terms. If you do not agree with amendments or modifications to the terms of this license agreement, your sole and exclusive remedy is to terminate your use of the Software.
+
+    ## EE Pro Installations
+
+    An ExpressionEngine Pro license purchase allows a single “live” installation in a production environment and ancillary “development use only” installations as needed to support the live installation (such as development and staging servers). Additional “live” installations require additional license purchases. If you have specific installation needs not covered by this license, please Contact Us.
+
+    ## Grant of License
+
+    Packet Tide hereby grants to you a non-exclusive, non-assignable, non-sublicensable license to access and use the Software subject to the terms and conditions of this Agreement. The licenses granted herein are conditioned upon your acceptance of this Agreement and payment in full for the Software. ​​Users of the EE Pro may use the Software on a website engaging in commercial, personal, non-commercial, or non-profit activities.
+
+    YOU MAY NOT USE, COPY, OR MODIFY THE SOFTWARE, IN WHOLE OR IN PART, EXCEPT AS EXPRESSLY PROVIDED FOR IN THIS AGREEMENT.
+
+    ## License Key
+
+    Upon payment for the Software, you will be issued a license key that may be used to access the Software in a “live” installation. You shall not allow an unauthorized person to access or use the license key assigned to you nor shall you use or allow the license key assigned to you to be used on multiple instances of ExpressionEngine. To do so shall be considered a material breach of this Agreement. You shall promptly report to Packet Tide any unauthorized use of the Software of which you become aware and shall take such further steps as may reasonably be requested by Packet Tide to prevent the unauthorized use thereof.
+
+    ## Restrictions
+
+    Unless you have been granted prior, written consent from Packet Tide, you may not:
+
+    -   Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Software
+    -   Use the Software as the basis of a hosted blogging service, or to provide hosting services to others.
+    -   Reproduce, distribute, or transfer the Software, or portions thereof, to any third party.
+    -   Sell, rent, lease, assign, or sublet the Software or portions thereof.
+    -   Grant rights to any other person.
+    -   Use the Software in violation of any U.S. or international law or regulation.
+    -   All copyright and proprietary notices and logos in the Control Panel and within the Software files must remain intact.
+
+    ## Reproduction
+
+    You may reproduce the Software for back-up purposes only, provided that you reproduce the Software in its original form and with all proprietary notices on the back-up copy.
+
+    ## Modification
+
+    You may alter, modify, or extend the Software for your own use, or commission a third-party to perform modifications for you, but you may not resell, redistribute or transfer the modified or derivative version without prior written consent from Packet Tide. Components from the Software may not be extracted and used in other programs without prior written consent from Packet Tide.
+
+
+    ## Technical Support
+
+    Technical support is provided as described in the Support Policy.
+
+    ## Refund Policy
+
+    Due to the non-returnable nature of downloadable software, Packet Tide does not issue refunds once a transaction has been completed. If you have questions about whether or not EE Pro will work for you, you may install EE Pro at no charge before making your installation live. We encourage you to thoroughly test the system before purchasing to determine its suitability for your purposes and compatibility with your hosting account.
+
+    ## Indemnity
+
+    You agree to indemnify and hold harmless Packet Tide from any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.
+
+    ## Disclaimer of Warranty
+
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF QUALITY, PERFORMANCE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. FURTHER, PACKET TIDE DOES NOT WARRANT THAT THE SOFTWARE OR ANY RELATED SERVICE WILL ALWAYS BE AVAILABLE.
+
+    ## Limitation of Liability
+
+    YOU ASSUME ALL RISK ASSOCIATED WITH THE INSTALLATION AND USE OF THE SOFTWARE. IN NO EVENT SHALL PACKET TIDE, ITS OFFICERS, MEMBERS, LICENSEES, LICENSORS, CONTRACTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE. LICENSE HOLDERS ARE SOLELY RESPONSIBLE FOR DETERMINING THE APPROPRIATENESS OF USE AND ASSUME ALL RISKS ASSOCIATED WITH ITS USE, INCLUDING BUT NOT LIMITED TO THE RISKS OF PROGRAM ERRORS, DAMAGE TO EQUIPMENT, LOSS OF DATA OR SOFTWARE PROGRAMS, OR UNAVAILABILITY OR INTERRUPTION OF OPERATIONS.
+
+    PACKET TIDE’S TOTAL LIABILITY TO YOU FOR ALL CLAIMS, IN THE AGGREGATE, WILL NOT EXCEED THE AMOUNT ACTUALLY PAID BY YOU TO PACKET TIDE OVER THE 12 MONTHS PRECEDING THE DATE YOUR FIRST CLAIM(S) AROSE. IF YOU LIVE IN A JURISDICTION THAT DOES NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION DOES NOT APPLY TO YOU. TO THE EXTENT THAT ONE OR ANY ASPECT OF PACKET TIDE’S LIMITATIONS SET OUT ABOVE DOES NOT APPLY, ALL REMAINING ASPECTS SURVIVE. THE EXCLUSIONS AND LIMITATIONS OF DAMAGES SET FORTH ABOVE ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE BARGAIN BETWEEN PACKET TIDE AND YOU.
+
+    Class Action Waiver
+    THE PARTIES HERETO AGREE THAT BY ENTERING INTO THIS AGREEMENT, EACH PARTY WAIVES ITS RIGHT TO PARTICIPATE IN A CLASS ACTION, PRIVATE ATTORNEY GENERAL ACTION OR OTHER REPRESENTATIVE ACTION AGAINST THE OTHER IN A COURT OR IN ARBITRATION. THE PARTIES FURTHER AGREE THAT EACH MAY BRING DISPUTES AGAINST EACH OTHER ONLY IN THEIR INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.
+
+    If a dispute arises from or relates to this contract or the breach thereof, and if the dispute cannot be settled through direct discussions, the parties agree to endeavor first to settle the dispute by mediation administered by the American Arbitration Association under its Commercial Mediation Procedures before resorting to arbitration. The parties further agree that any unresolved controversy or claim arising out of or relating to this contract, or breach thereof, shall be settled by arbitration administered by the American Arbitration Association in accordance with its Commercial Arbitration Rules and judgment on the award rendered by the arbitrator(s) may be entered in any court having jurisdiction thereof. Claims shall be heard by a single arbitrator. The place of arbitration shall be Daytona Beach, Florida. The arbitration shall be governed by the laws of the State of Florida. Each party shall bear its own costs and expenses and an equal share of the arbitrators' and administrative fees of arbitration.
+
+    ## Governing Law
+    These Terms shall be governed and construed in accordance with the laws of Florida, United States, without regard to its conflict of law provisions.
+
+    Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Services, and supersede and replace any prior agreements we might have had between us regarding the Services.
+
+    Interpretation; Severability; Waiver; Remedies
+    Headings are for convenience only and shall not be used to construe these Terms. If any term of these Terms is found invalid or unenforceable by any court of competent jurisdiction, that term will be severed from these Terms. No failure or delay by Packet Tide  in exercising any right hereunder will waive any further exercise of that right. The waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of Packet Tide. Packet Tide’s rights and remedies hereunder are cumulative and not exclusive.
+
+    Successors; Assignment; No Third Party Beneficiaries
+    These Terms are binding upon and will inure to the benefit of both parties and their respective successors, heirs, executors, administrators, personal representatives, and permitted assigns. You may not assign or transfer these Terms without Packet Tide’s prior written consent. Packet Tide may assign its rights, obligations and/or these Terms at any time at its sole discretion without notice to you.
+
+    ## Notices
+    You consent to receive all communications including notices, agreements, disclosures, or other information from Packet Tide electronically. Packet Tide may communicate by email or by posting to the Services. For support-related inquiries, you may email support@packettide.com. For all other notices to Packet Tide, write to the following addresses:
+
+        PACKET TIDE, LLC
+        260 Williamson Blvd.
+        Unit 730392
+        Ormond Beach, FL
+        32174
+
+    Nothing in these Terms or otherwise limits Packet Tide’s right to object to subpoenas, claims, or other demands.
