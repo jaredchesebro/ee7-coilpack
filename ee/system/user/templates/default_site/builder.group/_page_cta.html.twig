@@ -1,0 +1,11 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12">
+        {% for row in fluid %}
+            {% if row.heading != '' %}<h2>{{ row.heading }}</h2>{% endif %}
+            {% if row.subheading != '' %}<h3>{{ row.subheading }}</h3>{% endif %}
+            {{ row.text_content|raw }}
+        {% endfor %}
+        </div>
+    </div>
+</div>

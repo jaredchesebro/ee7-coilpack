@@ -1,0 +1,6 @@
+{% for row in fluid %}
+    {% if row.heading != '' %}
+        {% set h = row.heading_size %}
+        <{{ h }}>{{ row.heading }}</{{ h }}>
+    {% endif %}
+{% endfor %}

@@ -1,4 +1,49 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">   
-<title>{{ global.site_name }} | {{ entry.title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% set metaTitle = global.site_name ~ ' | ' ~ entry.title %}
+{% if entry.meta_title != '' %}
+    {% set metaTitle = entry.meta_title %}
+{% endif %}
+
+{% set metaDescription = globals.meta_description %}
+{% if entry.meta_description != '' %}
+    {% set metaDescription = entry.meta_description %}
+{% endif %}
+
+{% set metaImage = globals.meta_image %}
+{% if entry.meta_image != '' %}
+    {% set metaImage = entry.meta_image %}
+{% endif %}
+
+{% set metaRobots = 'none' %}
+{% if globals.discourage_indexing == '0' %}
+    {% set metaRobots = 'index, follow' %}
+    {% if entry.meta_robots != '' %}
+        {% set metaRobots = entry.meta_robots %}
+    {% endif %}
+{% endif %}
+
+{% set canonicalUrl = global.structure.page.url %}
+
+<title>{{ metaTitle }}</title>
+<meta name="description" content="{{ metaDescription }}">
+<meta name="robots" content="{{ metaRobots }}">
+
+{# Facebook Meta Tags #}
+<meta property="og:url" content="{{ canonicalUrl }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ metaTitle }}">
+<meta property="og:description" content="{{ metaDescription }}">
+<meta property="og:image" content="{{ metaImage}}">
+
+{# Twitter Meta Tags #}
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="{{ global.homepage }}">
+<meta property="twitter:url" content="{{ canonicalUrl }}">
+<meta name="twitter:title" content="{{ metaTitle }}">
+<meta name="twitter:description" content="{{ metaDescription}}">
+<meta name="twitter:image" content="{{ metaImage }}">
+
 <link href="{{ mix('/assets/css/main.css') }}" rel="stylesheet">
+        

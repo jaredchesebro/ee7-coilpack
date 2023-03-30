@@ -73,8 +73,8 @@ switch ($environment) {
 		$config['cookie_samesite'] = 'Lax';
 		$config['enable_devlog_alerts'] = 'y';
 		$config['log_threshold'] = '5';
-		$config['show_profiler'] = 'y';
-		$config['cache_driver'] = 'dummy';
+		$config['show_profiler'] = 'n';
+		$config['cache_driver'] = 'file';
 		$config['gzip_output'] = 'y';
 		$config['gmail_duplication_prevention'] = 'y';
 	break;
@@ -86,8 +86,8 @@ switch ($environment) {
 		$config['cookie_samesite'] = 'Strict';
 		$config['enable_devlog_alerts'] = 'y';
 		$config['log_threshold'] = '1';
-		$config['show_profiler'] = 'y';
-		$config['cache_driver'] = 'dummy';
+		$config['show_profiler'] = 'n';
+		$config['cache_driver'] = 'file';
 		$config['cache_driver_backup'] = 'file';
 		$config['redis'] = array(
 			'host' => env('REDIS_HOST'),

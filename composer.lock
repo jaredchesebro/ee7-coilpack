@@ -495,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ExpressionEngine/Coilpack.git",
-                "reference": "a9e672f54e69c1457730650bf3c787e72685d93b"
+                "reference": "d3bdcccd399acd1157db02c52be0a30754411f1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/a9e672f54e69c1457730650bf3c787e72685d93b",
-                "reference": "a9e672f54e69c1457730650bf3c787e72685d93b",
+                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/d3bdcccd399acd1157db02c52be0a30754411f1d",
+                "reference": "d3bdcccd399acd1157db02c52be0a30754411f1d",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +562,7 @@
                 "issues": "https://github.com/ExpressionEngine/Coilpack/issues",
                 "source": "https://github.com/ExpressionEngine/Coilpack/tree/0.x"
             },
-            "time": "2023-03-28T16:01:46+00:00"
+            "time": "2023-03-30T17:56:25+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -6402,16 +6402,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.21.2",
+            "version": "v1.21.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc"
+                "reference": "3042ff8cf403817c340d5a7762b2d32900239f46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
-                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/3042ff8cf403817c340d5a7762b2d32900239f46",
+                "reference": "3042ff8cf403817c340d5a7762b2d32900239f46",
                 "shasum": ""
             },
             "require": {
@@ -6463,7 +6463,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2023-03-06T14:23:15+00:00"
+            "time": "2023-03-13T01:22:10+00:00"
         },
         {
             "name": "mockery/mockery",

@@ -8,12 +8,10 @@
 {% endblock %}
 
 {% block contents %}
-
-    {% for row in entry.page_builder %}
-        <!-- BLOCK TYPE:{{ row.field.field_name }} | INDEX:{{ loop.index }} -->
-        <section id="{{ row.field.field_name }}-{{ loop.index }}" data-block="{{ row.field.field_name }}">
-            {% include 'ee::partials/_' ~ row.field.field_name %}
+    {% for fluid in entry.page_builder %}
+        <!-- BLOCK TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->
+        <section id="{{ fluid.field.field_name }}-{{ loop.index }}" data-block="{{ fluid.field.field_name }}">
+            {% include 'ee::builder/_page_' ~ fluid.field.field_name %}
         </section>
     {% endfor %}
-
 {% endblock %}
