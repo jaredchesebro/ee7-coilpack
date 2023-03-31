@@ -254,4 +254,8 @@ nodejs_version: "16"
 # See https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/ for more
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
-#hooks:
+hooks:
+  post-start:
+    - composer: install --no-interaction --no-progress --optimize-autoloader
+    - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
+    - exec: npx mix
