@@ -1,0 +1,38 @@
+{% extends "ee::site._layout" %}
+
+{% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
+{% set posts = exp.channel.entries({channel:"posts",dyanmic:false}) %}
+
+{% block hero %}
+    {% include 'ee::partials/_hero' %}
+{% endblock %}
+
+{% block contents %}
+
+    <h2 class="visually-hidden">Posts</h2>
+
+    <div class="container py-5">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="{{ post.page_url }}" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% for fluid in entry.page_builder %}
+        {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
+        <section id="{{ fluid.field.field_name }}-{{ loop.index }}" data-block="{{ fluid.field.field_name }}">
+            {% include 'ee::builder/_page_' ~ fluid.field.field_name %}
+        </section>
+    {% endfor %}
+{% endblock %}
