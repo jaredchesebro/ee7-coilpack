@@ -4,9 +4,10 @@
     {% include 'ee::partials/_head' %}
 </head>
 <body>
+    <a class="visually-hidden-focusable" href="#content">Skip to main content</a>
 	{% include 'ee::partials/_header' %}
-    <main>
-        {% block hero %}{% endblock %}
+    {% block hero %}{% endblock %}
+    <main id="content">
         {% block contents %}{% endblock %}
     </main>
 	{% include 'ee::partials/_footer' %}
