@@ -32,8 +32,14 @@ $config['password_lockout'] = 'y';
 $config['password_lockout_interval'] = '15';
 $config['expire_session_on_browser_close'] = 'y';
 $config['remove_unparsed_vars'] = 'n';
-$config['debug'] = env('EE_DEBUG');
+$config['gmail_duplication_prevention'] = 'n';
+$config['gzip_output'] = 'y';
 
+$config['enable_devlog_alerts'] = 'y';
+$config['debug'] = env('EE_DEBUG');
+$config['show_profiler'] = env('EE_SHOW_PROFILER');
+
+$config['cookie_samesite'] = 'Strict';
 $config['cookie_domain'] = env('EE_COOKIE_DOMAIN');
 $config['cookie_prefix'] = env('EE_COOKIE_PREFIX');
 $config['cookie_secure'] = env('EE_COOKIE_SECURE');
@@ -58,36 +64,23 @@ switch ($environment) {
 	case 'development':
 	case 'dev':
 	case 'local':
-		$config['cookie_samesite'] = 'Lax';
-		$config['enable_devlog_alerts'] = 'y';
 		$config['log_threshold'] = '5';
-		$config['show_profiler'] = 'y';
 		$config['cache_driver'] = 'file';
-		$config['gzip_output'] = 'y';
-		$config['gmail_duplication_prevention'] = 'n';
 	break;
 	
 	// STAGING ENV
 	case 'staging':
 	case 'stag':
-		$config['cookie_samesite'] = 'Lax';
-		$config['enable_devlog_alerts'] = 'y';
 		$config['log_threshold'] = '5';
-		$config['show_profiler'] = 'n';
 		$config['cache_driver'] = 'file';
-		$config['gzip_output'] = 'y';
-		$config['gmail_duplication_prevention'] = 'y';
 	break;
 	
 	// PRODUCTION ENV
 	case 'production':
 	case 'prod':
 	default:
-		$config['cookie_samesite'] = 'Strict';
-		$config['enable_devlog_alerts'] = 'y';
 		$config['log_threshold'] = '1';
-		$config['show_profiler'] = 'n';
-		$config['cache_driver'] = 'file';
+		$config['cache_driver'] = 'memcached';
 		$config['cache_driver_backup'] = 'file';
 		$config['redis'] = array(
 			'host' => env('REDIS_HOST'),
@@ -102,7 +95,6 @@ switch ($environment) {
 				'weight' => 1,
 			)
 		);
-		$config['gzip_output'] = 'y';
 		$config['gmail_duplication_prevention'] = 'y';
 	break;
 		
