@@ -2,17 +2,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    {% for entry in exp.structure.entries %}
-        <url>
-            <loc>{{ entry.url_title }}</loc>
-            <lastmod>2005-01-01</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.8</priority>
-        </url>
+    {% set entries = exp.channel.entries({channel:"home|pages|posts"}) %}
+    {% for entry in entries %}
+        {% if entry.sitemap == '1' %}
+            <url>
+                <loc>{{ entry.page_url }}</loc>
+                <lastmod>{{ entry.edit_date|date("Y-m-d") }}</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+        {% endif %}
     {% endfor %}
 
-    {#{% set entries = exp.channel.entries({channel:"home|pages|posts"}) %}
-    {% for entry in entries %}
-        
-    {% endfor %}#}
-</urlset> 
+</urlset>
