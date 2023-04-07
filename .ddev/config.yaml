@@ -258,4 +258,4 @@ hooks:
   post-start:
     - composer: install --no-interaction --no-progress --optimize-autoloader
     - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
-    - exec: npx mix
+    - exec: npx mix --production
