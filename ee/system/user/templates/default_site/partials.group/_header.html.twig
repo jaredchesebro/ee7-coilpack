@@ -12,23 +12,38 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                {% for item in exp.structure.nav({
+                {% set navigation = exp.structure.nav({
                     status: 'open',
-                    show_depth: 1,
+                    show_depth: 3,
+                    strict_start_from: "no",
+                    override_hidden_state: "no",
+                    max_depth: 4,
+                    
                 }) %}
-                    <li class="nav-item">
-                        <a href="{{ item.structure_url_title }}" class="nav-link">{{ item.entry.title }}</a>
-                    {#{% if item.children|length %}
-                        <ul>
-                            {% for child in item.children %}
-                                <li>
-                                    <a href="{{ child.structure_url_title }}">{{ child.entry.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}#}
+                {#{{ dump(navigation)}}#}
+                {% for item in navigation %}
+                    <li class="nav-item{% if item.children|length %} dropdown{% endif %}">
+
+                        <a href="{{ item.url }}" class="nav-link{% if item.children|length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}">{{ item.entry.title }}</a>
+
+                        {% if item.children|length %}
+
+                            <a href="#" class="nav-link d-inline-block ps-0 dropdown-toggle{% if item.active %} active{% endif %}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="visually-hidden">{{ item.entry.title }} Dropdown</span></a>
+
+                            <ul class="dropdown-menu">
+                            
+                                {% for child in item.children %}
+                                    <li>
+                                        <a href="{{ child.url }}" class="dropdown-item{% if child.active %} active{% endif %}">{{ child.entry.title }}</a>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+
+                        {% endif %}
                     </li>
                 {% endfor %}
+
             </ul>
         </div>
     </div>

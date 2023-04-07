@@ -1,3 +1,9 @@
 // /resources/scss/main.scss
 
 @import 'vendors/bootstrap';
+
+@include media-breakpoint-up(md) {
+    .nav-item.dropdown:hover .dropdown-menu{
+        display:block!important
+    }
+}
