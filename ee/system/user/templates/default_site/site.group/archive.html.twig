@@ -15,15 +15,34 @@
     <div class="container py-5">
         <div class="row">
             {% for post in posts %}
+                {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
+                {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
+                {# 
+                    .resize_crop parameters
+                        resize:height
+                        resize:width
+                        resize:master_dim
+                        resize:quality
+                        crop:width
+                        crop:height
+                        crop:x
+                        crop:y
+                        crop:maintain_ratio
+                        crop:quality
+                #}
+                {% set altText = post.featured_image.description %}
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                    <article class="card">
+                        <picture>
+                            <source srcset="{{ featuredImageWebp }}" type="image/webp" />
+                            <img src="{{ featuredImage }}" class="card-img-top" alt="{{ altText }}">
+                        </picture>
                         <div class="card-body">
-                            <h5 class="card-title">{{ post.title }}</h5>
+                            <h3 class="card-title h5">{{ post.title }}</h3>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="{{ post.page_url }}" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ post.page_url }}" class="btn btn-primary">Read More<span class="visually-hidden">: {{ post.title }}</span></a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             {% endfor %}
         </div>
