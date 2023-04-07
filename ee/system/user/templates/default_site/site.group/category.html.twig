@@ -1,8 +1,13 @@
 {% extends "ee::site._layout" %}
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
-{% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
-{% set posts = exp.channel.entries({channel:"posts",dyanmic:false}) %}
+{% set category = exp.channel.categories({category: segment_3}).first() %}
+{% set posts = exp.channel.entries({channel:"posts", category_id: category.cat_id, per_page:3 }) %}
+
+    
+
+{% set catMetaTitle = global.site_name ~ ' | ' ~ category.cat_name %}
+{% set catMetaDescription = category.cat_description %}
 
 {% block hero %}
     {% include 'ee::partials/_hero' %}
@@ -11,13 +16,30 @@
 {% block contents %}
 
     <h2 class="visually-hidden">Posts</h2>
-
     <div class="container py-5">
         <div class="row">
+            {% if not posts|length %}
+                <div class="alert alert-warning" role="alert">
+                   Sorry, No results!
+                </div>
+            {% endif %}
+
             {% for post in posts %}
                 {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
                 {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
-
+                {# 
+                    .resize_crop parameters
+                        resize:height
+                        resize:width
+                        resize:master_dim
+                        resize:quality
+                        crop:width
+                        crop:height
+                        crop:x
+                        crop:y
+                        crop:maintain_ratio
+                        crop:quality
+                #}
                 {% set altText = post.featured_image.description %}
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <article class="card">
@@ -42,11 +64,5 @@
             {% endfor %}
         </div>
     </div>
-
-    {% for fluid in entry.page_builder %}
-        {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
-        <section id="{{ fluid.field.field_name }}-{{ loop.index }}" data-block="{{ fluid.field.field_name }}">
-            {% include 'ee::builder/_page_' ~ fluid.field.field_name %}
-        </section>
-    {% endfor %}
+    {{ posts.links }}
 {% endblock %}

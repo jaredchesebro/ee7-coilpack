@@ -2,23 +2,28 @@
 {% set classes = 'bg-dark bg-gradient ' %}
 {% set heroTitle = entry.title %}
 
-{% for row in entry.hero_content %}
-    {% if row.background_image != '' %}
-        {% set bg = row.background_image %}
-        {% set classes = '' %}
-    {% endif %}
-    {% if row.heading != '' %}
-        {% set heroTitle = row.heading %}
-    {% endif %}
+{% set hero = entry.hero_content.first() %}
 
-    <header class="{{ classes }}text-white py-5" {% if bg != '' %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-12">
-                    <h1>{{ heroTitle }}</h1>
-                    {% if row.subheading %}<p>{{ row.subheading }}</p>{% endif %}
-                </div>
+{% if hero.background_image != '' %}
+    {% set bg = hero.background_image %}
+    {% set classes = '' %}
+{% endif %}
+
+{% if hero.heading != '' %}
+    {% set heroTitle = hero.heading %}
+{% endif %}
+
+{% if segment_2 == 'category' and segment_3|length %}
+    {% set heroTitle = 'Category: ' ~ category.cat_name %}
+{% endif %}
+
+<header class="{{ classes }}text-white py-5" {% if bg != '' %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ heroTitle }}</h1>
+                {% if hero.subheading %}<p>{{ hero.subheading }}</p>{% endif %}
             </div>
         </div>
-    </header>
-{% endfor %}
+    </div>
+</header>

@@ -24,7 +24,18 @@
     {% endif %}
 {% endif %}
 
-{% set canonicalUrl = entry.page_url %}
+{% set canonicalUrl = global.current_url %}
+{% if entry.page_url|length %}
+    {% set canonicalUrl = entry.page_url %}
+{% endif %}
+
+{% if segment_2 == 'category' and segment_3|length %}
+    {% set metaTitle = global.site_name ~ ' | Category: ' ~ category.cat_name %}
+    {% set metaRobots = 'noindex, follow' %}
+    {% if catMetaDescription|length %}
+        {% set metaDescription = catMetaDescription %}
+    {% endif %}
+{% endif %}
 
 <title>{{ metaTitle }}</title>
 <meta name="description" content="{{ metaDescription }}">
