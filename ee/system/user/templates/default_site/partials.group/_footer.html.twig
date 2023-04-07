@@ -1,45 +1,58 @@
 {% import 'ee::site/_macros' as m %}
 
-<footer class="bg-dark bg-gradient text-white">
-    <div class="container py-5">
-        <div class="row">
+<footer>
+    <section class="bg-dark bg-gradient text-white">
+        <div class="container py-5">
+            <div class="row">
 
-            <div class="col-lg-3">
-                {% for row in globals.address %}
-                    <h2 class="h4">Address</h2>
-                    <address>
-                        {{ row.street_address }}<br>
-                        {{ row.city }}, {{ row.state }} {{ row.zipcode }}
-                    </address>
-                {% endfor %}
+                <div class="col-lg-3">
+                    {% for row in globals.address %}
+                        <h2 class="h4">Address</h2>
+                        <address>
+                            {{ row.street_address }}<br>
+                            {{ row.city }}, {{ row.state }} {{ row.zipcode }}
+                        </address>
+                    {% endfor %}
+                </div>
+
+                <div class="col-lg-3">
+                    {% for row in globals.footer_links %}
+                        {% if loop.first %}
+                        <h2 class="h4">Links</h2>
+                        <ul class="list-unstyled">
+                        {% endif %}
+                        
+                        {% set target = '' %}
+                        {% if row.new_tab == '1' %}
+                            {% set target = '_blank' %}
+                        {% endif %}
+                        {% set class = 'link-light' %}
+
+                        {{ m.links(row.link,row.link_text,class,target) }}
+
+                        {% if loop.last %}
+                        </ul>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <div class="col-lg-6">
+                    <h2 class="h4">Footer Content</h2>
+                    {{ globals.footer_content|raw }}
+                </div>
+
             </div>
-
-            <div class="col-lg-3">
-                {% for row in globals.footer_links %}
-                    {% if loop.first %}
-                    <h2 class="h4">Links</h2>
-                    <ul class="list-unstyled">
-                    {% endif %}
-                    
-                    {% set target = '' %}
-                    {% if row.new_tab == '1' %}
-                        {% set target = '_blank' %}
-                    {% endif %}
-                    {% set class = 'link-light' %}
-
-                    {{ m.links(row.link,row.link_text,class,target) }}
-
-                    {% if loop.last %}
-                    </ul>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            
-            <div class="col-lg-6">
-                <h2 class="h4">Footer Content</h2>
-                {{ globals.footer_content|raw }}
-            </div>
-
         </div>
-    </div>
+    </section>
+
+    <section class="bg-secondary bg-gradient text-white text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    &copy; {{ global.current_time|date("Y") }} {{ global.site_name }}, All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </footer>
