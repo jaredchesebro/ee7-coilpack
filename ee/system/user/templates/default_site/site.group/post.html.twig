@@ -12,7 +12,11 @@
         <div class="container">
             <div class="row justify-content-center py-5">
                 <div class="col-md-12 col-lg-8">
-                    <p>@{{ entry.author.screen_name }}  {#{{ entry.author.github_handle }}#} | {{ entry.entry_date|date("m/d/Y") }}</p>
+                    {% set author = entry.author.screen_name %}
+                    {% if entry.author.github_handle|length %}
+                        {% set author = '@' ~ entry.author.github_handle %}
+                    {% endif %}
+                    <p>{{ author }} | {{ entry.entry_date|date("m/d/Y") }}</p>
                     {% for fluid in entry.post_builder %}
                         {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
                         {% include 'ee::builder/_post_' ~ fluid.field.field_name %}
