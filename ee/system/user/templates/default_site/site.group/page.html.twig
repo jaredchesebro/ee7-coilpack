@@ -8,10 +8,16 @@
 {% endblock %}
 
 {% block contents %}
+
+    {% if not entry|length %}
+        {{ exp.redirect(404) }}
+    {% endif %}
+
     {% for fluid in entry.page_builder %}
         {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
         <section id="{{ fluid.field.field_name }}-{{ loop.index }}" data-block="{{ fluid.field.field_name }}">
             {% include 'ee::builder/_page_' ~ fluid.field.field_name %}
         </section>
     {% endfor %}
+    
 {% endblock %}

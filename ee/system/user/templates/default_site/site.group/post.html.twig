@@ -8,6 +8,11 @@
 {% endblock %}
 
 {% block contents %}
+
+    {% if not entry|length %}
+        {{ exp.redirect(404) }}
+    {% endif %}
+
     <article>
         <div class="container">
             <div class="row justify-content-center py-5">
@@ -25,4 +30,5 @@
             </div>
         </div>
     </article>
+    
 {% endblock %}
