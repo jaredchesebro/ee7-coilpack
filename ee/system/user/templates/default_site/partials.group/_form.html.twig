@@ -1,11 +1,18 @@
 <section>
     {% set form = exp.email.contact_form({
-        user_recipients: 'no',
+        user_recipients: 'false',
         recipients: 'hello@danggood.dev',
         charset: 'utf-8',
-        class: 'needs-validation',
-        return: 'https://ee7-coilpack.ddev.site/thank-you'
+        form_class: 'needs-validation',
+        form_id: 1,
+        redirect: 'return',
+        return: 'https://ee7-coilpack.ddev.site/thank-you',
+        form_attributes: {
+            "novalidate": "true"
+        }
     }) %}
+
+    {#{{ dump(form) }}#}
 
     <div class="container">
         <div class="row justify-content-center">
@@ -17,11 +24,13 @@
                         <div class="col mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            <div class="invalid-feedback">This is a required field.</div>
                         </div>
 
                         <div class="col mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
                             <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            <div class="invalid-feedback">This is a required field.</div>
                         </div>
 
                     </div>
@@ -30,44 +39,28 @@
                         <label for="from" class="form-label">Email Address</label>
                         <input type="email" class="form-control" id="from" name="from" aria-describedby="emailHelp" value="{{ form.member_email }}" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div class="invalid-feedback">This is a required field.</div>
                     </div>
 
                     <div class="mb-3">
                         <label for="subject" class="form-label">Subject</label>
                         <input type="text" id="subject" name="subject" class="form-control" required>
+                        <div class="invalid-feedback">This is a required field.</div>
                     </div>
 
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="3">
+                        <textarea class="form-control" id="message" name="message" rows="3" required>
                             Support Email from: {{ form.member_name }}
                             Sent at:  {{ form.current_time.format("Y-m-d") }}
                         </textarea>
+                        <div class="invalid-feedback">This is a required field.</div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 
                 {{ form.close()|raw }}
-                <script>
-                    (() => {
-                    'use strict'
-
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    const forms = document.querySelectorAll('.needs-validation')
-
-                    // Loop over them and prevent submission
-                    Array.from(forms).forEach(form => {
-                        form.addEventListener('submit', event => {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
-
-                            form.classList.add('was-validated')
-                            }, false)
-                        })
-                    })()
-                </script>
+                
             </div>
         </div>
     </div>
