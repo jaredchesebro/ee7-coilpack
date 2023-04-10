@@ -2,9 +2,7 @@
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
 {% set category = exp.channel.categories({category: segment_3}).first() %}
-{% set posts = exp.channel.entries({channel:"posts", category_id: category.cat_id, per_page:3 }) %}
-
-    
+{% set posts = exp.channel.entries({channel:"posts", category_id: category.cat_id, per_page:8 }) %}
 
 {% set catMetaTitle = global.site_name ~ ' | ' ~ category.cat_name %}
 {% set catMetaDescription = category.cat_description %}
@@ -14,14 +12,13 @@
 {% endblock %}
 
 {% block contents %}
-
     <h2 class="visually-hidden">Posts</h2>
+
     <div class="container py-5">
         <div class="row">
+
             {% if not posts|length %}
-                <div class="alert alert-warning" role="alert">
-                   Sorry, No results!
-                </div>
+                {{ exp.redirect(404) }}
             {% endif %}
 
             {% for post in posts %}
@@ -42,7 +39,7 @@
                 #}
                 {% set altText = post.featured_image.description %}
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <article class="card">
+                    <article class="card h-100">
                         <picture>
                             <source srcset="{{ featuredImageWebp }}" type="image/webp" />
                             <img src="{{ featuredImage }}" class="card-img-top" alt="{{ altText }}">
@@ -56,13 +53,17 @@
                                 {% endfor %}
                             </div>
                             {% endif %}
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{ post.post_description|str_words(25) }}</p>
                             <a href="{{ post.page_url }}" class="btn btn-primary">Read More<span class="visually-hidden">: {{ post.title }}</span></a>
                         </div>
                     </article>
                 </div>
             {% endfor %}
+
+            <div class="col-12 pt-5">
+                {{ posts.links }}
+            </div>
+
         </div>
     </div>
-    {{ posts.links }}
 {% endblock %}
