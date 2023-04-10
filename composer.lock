@@ -495,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ExpressionEngine/Coilpack.git",
-                "reference": "9dace62630fd164df16e29bf2a91e419a51d3128"
+                "reference": "4104422bccee476e9a68d498901ba8123d35391b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/9dace62630fd164df16e29bf2a91e419a51d3128",
-                "reference": "9dace62630fd164df16e29bf2a91e419a51d3128",
+                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/4104422bccee476e9a68d498901ba8123d35391b",
+                "reference": "4104422bccee476e9a68d498901ba8123d35391b",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +562,7 @@
                 "issues": "https://github.com/ExpressionEngine/Coilpack/issues",
                 "source": "https://github.com/ExpressionEngine/Coilpack/tree/0.x"
             },
-            "time": "2023-04-06T17:35:04+00:00"
+            "time": "2023-04-10T12:56:56+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -2709,16 +2709,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.14",
+            "version": "v0.11.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17"
+                "reference": "5350ce0ec8ecf2c5b5cf554cd2496f97b444af85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
-                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/5350ce0ec8ecf2c5b5cf554cd2496f97b444af85",
+                "reference": "5350ce0ec8ecf2c5b5cf554cd2496f97b444af85",
                 "shasum": ""
             },
             "require": {
@@ -2779,9 +2779,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.14"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.15"
             },
-            "time": "2023-03-28T03:41:01+00:00"
+            "time": "2023-04-07T21:57:09+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5394,16 +5394,16 @@
         },
         {
             "name": "thecodingmachine/safe",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "e788f3d09dcd36f806350aedb77eac348fafadd3"
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/e788f3d09dcd36f806350aedb77eac348fafadd3",
-                "reference": "e788f3d09dcd36f806350aedb77eac348fafadd3",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
                 "shasum": ""
             },
             "require": {
@@ -5527,9 +5527,9 @@
             "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
             "support": {
                 "issues": "https://github.com/thecodingmachine/safe/issues",
-                "source": "https://github.com/thecodingmachine/safe/tree/v2.4.0"
+                "source": "https://github.com/thecodingmachine/safe/tree/v2.5.0"
             },
-            "time": "2022-10-07T14:02:17+00:00"
+            "time": "2023-04-05T11:54:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
