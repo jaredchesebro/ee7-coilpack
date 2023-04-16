@@ -1,10 +1,9 @@
 <section>
     {% set form = exp.email.contact_form({
-        user_recipients: 'false',
         recipients: 'hello@danggood.dev',
         charset: 'utf-8',
         form_class: 'needs-validation',
-        form_id: 1,
+        form_id: form_1,
         redirect: 'return',
         return: 'https://ee7-coilpack.ddev.site/thank-you',
         form_attributes: {
@@ -49,13 +48,21 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="3" required>
-                            Support Email from: {{ form.member_name }}
-                            Sent at:  {{ form.current_time.format("Y-m-d") }}
-                        </textarea>
+                        <label for="message" class="form-label">Comments</label>
+                        <textarea class="form-control" id="comments" name="comments" rows="3" required></textarea>
                         <div class="invalid-feedback">This is a required field.</div>
                     </div>
+
+                    <div class="mb-3 d-none">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="3" disabled></textarea>
+                    </div>
+
+                    {% if global.captcha|length %}
+                        <p>Please enter the word you see in the image below:</p>
+                        <p>{#{{ form.captcha }}#}<br /> 
+                        <input type="text" name="captcha" value="" maxlength="20" /></p>
+                    {% endif %}
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 

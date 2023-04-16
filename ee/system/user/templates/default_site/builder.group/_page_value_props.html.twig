@@ -1,0 +1,15 @@
+
+
+<section id="{{ fluidId }}" data-block="{{ fluidName }}">
+
+    <div class="container py-5 mt-4">
+        <div class="row justify-content-center">
+            {% for row in fluid %}
+                <div class="col-lg-4 text-center mb-4"> 
+                    <h3 class="h5">{{ row.heading }}</h3>
+                    <p class="mb-0">{{ row.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

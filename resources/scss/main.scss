@@ -7,3 +7,11 @@
         display:block!important
     }
 }
+
+.form-floating:not(.form-control:disabled)::before {
+    z-index: -1;
+}
+
+.grecaptcha-badge {
+    @include visually-hidden;
+}

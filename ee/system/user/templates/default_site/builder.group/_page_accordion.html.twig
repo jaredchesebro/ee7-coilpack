@@ -1,28 +1,46 @@
-{% set accordionId = 'accordion-' ~ loop.index %}
+{% set accordionId = 'accordion-group-' ~ loop.index %}
 
-<div class="container py-5">
-    <div class="row">
-        <div class="col-12">
+{% for row in fluid %}
 
-            <div class="accordion" id="{{ accordionId }}">
-                {% for accordion in fluid %}
+    {% set classes = '' %}
+    {% if row.style|length %}
+        {% set classes = 'text-bg-' ~ row.style ~ ' bg-gradient' %}
+    {% endif %}
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}" aria-expanded="false" aria-controls="collapse-{{ loop.index }}">
-                            {{ accordion.heading }}
-                        </button>
-                    </h2>
-                    <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#{{ accordionId }}">
-                        <div class="accordion-body">
-                            {{ accordion.content|raw }}
-                        </div>
+    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes }}">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <h2>{{ row.heading }}</h2>
+                    {% if row.subheading|length %}
+                        <h3>{{ row.subheading }}</h3>
+                    {% endif %}
+                    {{ row.rich_text|raw }}
+
+                    <div class="accordion" id="{{ accordionId }}">
+
+                        {% for accordion in row.accordion_panel %}
+
+                            <div class="accordion-item shadow">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}" aria-expanded="false" aria-controls="collapse-{{ loop.index }}">
+                                        {{ accordion.title }}
+                                    </button>
+                                </h2>
+                                <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#{{ accordionId }}">
+                                    <div class="accordion-body">
+                                        {{ accordion.accordion_content|raw }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                        
                     </div>
+
                 </div>
-
-                {% endfor %}
             </div>
-
         </div>
-    </div>
-</div>
+    </section>
+    
+{% endfor %}
