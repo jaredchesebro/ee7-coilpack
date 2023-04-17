@@ -1,7 +1,7 @@
 {% extends "ee::site._layout" %}
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
-{% set entry = exp.channel.entries({channel:"posts",dynamic:true,limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"posts",limit:1}).first() %}
 
 {% block hero %}
     {% include 'ee::partials/_hero' %}
@@ -18,10 +18,17 @@
             <div class="row justify-content-center py-5">
                 <div class="col-md-12 col-lg-8">
                     {% set author = entry.author.screen_name %}
-                    {% if entry.author.github_handle|length %}
-                        {% set author = '@' ~ entry.author.github_handle %}
-                    {% endif %}
-                    <p>{{ author }} | {{ entry.entry_date|date("m/d/Y") }}</p>
+                    
+                    <p>
+                        {% if entry.author.github_handle|length %}
+                            {% set author = '@' ~ entry.author.github_handle %}
+                            {% set githubLink = 'https://github.com/' ~ author %}
+                            <a href="{{ githubLink }}" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ author }}</a>
+                        {% else %}
+                            {{ author }}
+                        {% endif %}
+                     | {{ entry.entry_date|date("m/d/Y") }}
+                    </p>
                     {% for fluid in entry.post_builder %}
                         {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
                         {% include 'ee::builder/_post_' ~ fluid.field.field_name %}
