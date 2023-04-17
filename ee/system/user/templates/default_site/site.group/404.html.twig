@@ -8,10 +8,15 @@
 {% endblock %}
 
 {% block contents %}
+
     {% for fluid in entry.page_builder %}
-        {% if global.logged_in == '1' %}<!-- FLUID TYPE:{{ fluid.field.field_name }} | INDEX:{{ loop.index }} -->{% endif %}
-        <section id="{{ fluid.field.field_name }}-{{ loop.index }}" data-block="{{ fluid.field.field_name }}">
-            {% include 'ee::builder/_page_' ~ fluid.field.field_name %}
-        </section>
+
+        {% set fluidId = fluid.field.field_name ~ '-' ~ loop.index %}
+        {% set fluidName = fluid.field.field_name %}
+
+        {% if global.logged_in %}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{% endif %}
+        {% include 'ee::builder/_page_' ~ fluidName %}
+
     {% endfor %}
+    
 {% endblock %}
