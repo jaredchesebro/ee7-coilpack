@@ -11,13 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.setPublicPath('public')
-   .options({
-       processCssUrls: false,
-   })
-   .sourceMaps(false, 'source-map')
-   .js('resources/js/main.js', 'public/assets/js')
-   .sass('resources/scss/main.scss', 'public/assets/css')
-   .version();
-   //.copy('resources/fonts', 'public/assets/fonts');
-   //.copy('resources/images', 'public/assets/images');
+mix.setPublicPath('public')
+  .options({
+      processCssUrls: false,
+  })
+  .sourceMaps(false, 'source-map')
+  .js('resources/js/main.js', 'public/assets/js')
+  .sass('resources/scss/main.scss', 'public/assets/css')
+  .version();
+  //.copy('resources/fonts', 'public/assets/fonts');
+  //.copy('resources/images', 'public/assets/images');
