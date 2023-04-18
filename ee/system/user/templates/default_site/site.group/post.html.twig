@@ -12,13 +12,12 @@
     {% if not entry|length %}
         {{ exp.redirect(404) }}
     {% endif %}
-    
+
     <article>
         <div class="container">
             <div class="row justify-content-center py-5">
                 <div class="col-md-12 col-lg-8">
                     {% set author = entry.author.screen_name %}
-                    {{ entry.entry_id }}
                     <p>
                         {% if entry.author.github_handle|length %}
                             {% set author = '@' ~ entry.author.github_handle %}
