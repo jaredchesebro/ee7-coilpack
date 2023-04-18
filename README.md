@@ -4,8 +4,6 @@ ExpressionEngine with superpowers.
 
 ## Technology Stack
 
----
-
 ### ExpressionEngine Coilpack
 
 <a target="_blank" href="https://expressionengine.com"><img src="https://expressionengine.com/asset/img/expressionengine-with-text.svg"  width="300" style="max-width: 100%" alt="ExpressionEngine Logo"></a>
@@ -15,8 +13,6 @@ Coilpack is a package that lets you harness the powerful Laravel ecosystem to br
 - [Coilpack Docs](https://expressionengine.github.io/coilpack-docs/)
 - [ExpressionEngine User Guide](https://docs.expressionengine.com/latest/index.html)
 
----
-
 ### Laravel
 
 <a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" style="max-width: 100%" alt="Laravel Logo"></a>
@@ -24,8 +20,6 @@ Coilpack is a package that lets you harness the powerful Laravel ecosystem to br
 Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.
 
 - [Laravel Docs](https://laravel.com/docs)
-
----
 
 ### Twig
 
@@ -37,8 +31,6 @@ Laravel is a web application framework with expressive, elegant syntax. We’ve 
 
 - [Twig Documentation](https://twig.symfony.com/doc/3.x/)
 
----
-
 ### Bootstrap
 
 <a href="https://getbootstrap.com/" target="_blank"><img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap logo" style="max-width: 100%;" width="100"></a>
@@ -47,8 +39,6 @@ Bootstrap is the world's most powerful, extensible, and feature-packed frontend 
 
 - [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
----
-
 ### DDEV
 
 <a target="_blank" rel="noopener noreferrer" href="/ddev/ddev/blob/master/images/ddev-logo.svg"><img src="https://raw.githubusercontent.com/ddev/ddev/master/images/ddev-logo.svg" alt="DDEV Logo" width="300" style="max-width: 100%;"></a>
@@ -56,8 +46,6 @@ Bootstrap is the world's most powerful, extensible, and feature-packed frontend 
 DDEV is an open source tool for launching local PHP development environments in minutes.
 
 - [DDEV Docs](https://ddev.readthedocs.io/en/stable/)
-
----
 
 ## Questions
 
