@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Run npx inside the web container
+## Usage: npx [flags] [args]
+## Example: "ddev npx mix" or "ddev npx mix watch"
+## ExecRaw: true
+## HostWorkingDir: true
+
+npx "$@"
