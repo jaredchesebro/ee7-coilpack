@@ -5,3 +5,10 @@
         </a>
     </li>
 {% endmacro %}
+
+{% macro picture(orig,webp,alt,class) %}
+    <picture>
+        {% if webp|length %}<source srcset="{{ webp }}" type="image/webp" />{% endif %}
+        <img src="{{ orig }}"{% if class|length %} class="{{ class}}"{% endif %} alt="{{ alt }}">
+    </picture>
+{% endmacro %}

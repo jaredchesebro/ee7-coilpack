@@ -1,8 +1,9 @@
 {% extends "ee::site._layout" %}
+{% import 'ee::site/_macros' as m %}
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
 {% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
-{% set posts = exp.channel.entries({channel:"posts",per_page:8}) %}
+{% set posts = exp.channel.entries({channel:"posts",per_page:8,orderby:"entry_date",sort:"desc"}) %}
 
 {% block hero %}
     {% include 'ee::partials/_hero' %}
@@ -20,16 +21,15 @@
             {% endif %}
 
             {% for post in posts %}
-                {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
-                {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
-
-                {% set altText = post.featured_image.description %}
+                
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <article class="card h-100 shadow">
-                        <picture>
-                            <source srcset="{{ featuredImageWebp }}" type="image/webp" />
-                            <img src="{{ featuredImage }}" class="card-img-top" alt="{{ altText }}">
-                        </picture>
+                        {% if post.featured_image|length %}
+                            {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
+                            {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
+                            {% set altText = post.featured_image.description %}
+                            {{ m.picture(featuredImage,featuredImageWebp,altText,'card-img-top') }}
+                        {% endif %}
                         <div class="card-body">
                             <h3 class="card-title h5">{{ post.title }}</h3>
                             {% if post.categories|length %}
