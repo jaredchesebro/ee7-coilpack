@@ -438,12 +438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ExpressionEngine/Coilpack.git",
-                "reference": "1cefb00f552e0dc65c4c2d1d1ad64e17430c9d63"
+                "reference": "c38ebaf7eb7d1ad6edaa4b3724eec253942384fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/1cefb00f552e0dc65c4c2d1d1ad64e17430c9d63",
-                "reference": "1cefb00f552e0dc65c4c2d1d1ad64e17430c9d63",
+                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/c38ebaf7eb7d1ad6edaa4b3724eec253942384fb",
+                "reference": "c38ebaf7eb7d1ad6edaa4b3724eec253942384fb",
                 "shasum": ""
             },
             "require": {
@@ -505,7 +505,7 @@
                 "issues": "https://github.com/ExpressionEngine/Coilpack/issues",
                 "source": "https://github.com/ExpressionEngine/Coilpack/tree/0.x"
             },
-            "time": "2023-04-18T19:50:20+00:00"
+            "time": "2023-04-19T14:24:16+00:00"
         },
         {
             "name": "fruitcake/php-cors",
