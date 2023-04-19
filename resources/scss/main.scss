@@ -2,6 +2,14 @@
 
 @import 'vendors/bootstrap';
 
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 99px;
+}
+
 @include media-breakpoint-up(md) {
     .nav-item.dropdown:hover .dropdown-menu{
         display:block!important

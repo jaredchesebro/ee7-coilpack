@@ -1,14 +1,15 @@
 <nav class="navbar navbar-expand-md bg-light bg-gradient py-4 shadow sticky-top">
     <div class="container">
+    
         {% if globals.logo %}
             <a class="navbar-brand" href="/">
                 <img src="{{ globals.logo }}" alt="{{ global.site_name }}">
             </a>
         {% endif %}
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 {% set navigation = exp.structure.nav({
@@ -21,9 +22,19 @@
                 }) %}
 
                 {% for item in navigation %}
+
+                    {% set pageUrl = item.url %}
+                    {% set newTab = false %}
+                    {% if item.entry.redirect_url|length %}
+                        {% set pageUrl = item.entry.redirect_url %}
+                        {% if item.entry.new_tab == '1' %}
+                            {% set newTab = true %}
+                        {% endif %}
+                    {% endif %}
+
                     <li class="nav-item{% if item.children|length %} dropdown{% endif %}">
 
-                        <a href="{{ item.url }}" class="nav-link{% if item.children|length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}">{{ item.entry.title }}</a>
+                        <a href="{{ pageUrl }}" class="nav-link{% if item.children|length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}"{% if newTab %} target="_blank"{% endif %}>{{ item.entry.title }}</a>
 
                         {% if item.children|length %}
 
@@ -32,9 +43,20 @@
                             <ul class="dropdown-menu">
                             
                                 {% for child in item.children %}
+
+                                    {% set pageUrl = child.url %}
+                                    {% set newTab = false %}
+                                    {% if child.entry.redirect_url|length %}
+                                        {% set pageUrl = child.entry.redirect_url %}
+                                        {% if child.entry.new_tab == '1' %}
+                                            {% set newTab = true %}
+                                        {% endif %}
+                                    {% endif %}
+
                                     <li>
-                                        <a href="{{ child.url }}" class="dropdown-item{% if child.active %} active{% endif %}">{{ child.entry.title }}</a>
+                                        <a href="{{ pageUrl }}" class="dropdown-item{% if child.active %} active{% endif %}"{% if newTab %} target="_blank"{% endif %}>{{ child.entry.title }}</a>
                                     </li>
+
                                 {% endfor %}
 
                             </ul>
