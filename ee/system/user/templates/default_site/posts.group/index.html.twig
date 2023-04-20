@@ -10,18 +10,13 @@
 {% endblock %}
 
 {% block contents %}
-
     <h2 class="visually-hidden">Posts</h2>
-
     <div class="container py-5">
         <div class="row">
-
-            {% if not posts|length %}
+            {% if not entry|length or not posts|length %}
                 {{ exp.redirect(404) }}
             {% endif %}
-
             {% for post in posts %}
-                
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <article class="card h-100 shadow">
                         {% if post.featured_image|length %}
@@ -45,22 +40,15 @@
                     </article>
                 </div>
             {% endfor %}
-
             <div class="col-12 pt-5">
                 {{ posts.links }}
             </div>
-
         </div>
     </div>
-
     {% for fluid in entry.page_builder %}
-
         {% set fluidId = fluid.field.field_name ~ '-' ~ loop.index %}
         {% set fluidName = fluid.field.field_name %}
-
         {% if global.logged_in %}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{% endif %}
         {% include 'ee::builder/_page_' ~ fluidName %}
-
     {% endfor %}
-
 {% endblock %}
