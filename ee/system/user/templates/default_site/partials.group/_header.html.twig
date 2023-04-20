@@ -1,27 +1,19 @@
 {% from 'ee::site/_macros' import showNav %}
-
 <nav class="navbar navbar-expand-md bg-light bg-gradient py-4 shadow sticky-top">
     <div class="container">
-
         {% if globals.logo %}
             <a class="navbar-brand" href="/">
                 <img src="{{ globals.logo }}" alt="{{ global.site_name }}">
             </a>
         {% endif %}
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
         {# Navigation currently supports 2 levels #}
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% for item in exp.structure.nav({
-                    status: 'open',
-                    show_depth: 2,
-                }) %}
+                {% for item in exp.structure.nav({status:'open',show_depth:2}) %}
                     {{ showNav(item) }}
                 {% endfor %}
             </ul>
         </div>
-
     </div>
 </nav>
