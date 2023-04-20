@@ -1,7 +1,7 @@
 {% extends "ee::site._layout" %}
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
-{% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"home|pages",dynamic:true,limit:1}).first() %}
 
 {% block hero %}
     {% include 'ee::partials/_hero' %}
