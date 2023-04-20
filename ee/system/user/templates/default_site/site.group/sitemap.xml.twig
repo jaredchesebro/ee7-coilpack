@@ -16,9 +16,6 @@
             {% elseif entry.channel_id == '5' %}
                 {% set priority = '0.8' %}
             {% endif %}
-            {% if entry.priority|length %}
-                {% set priority = entry.priority|str_limit(3,'') %}
-            {% endif %}
             <url>
                 <loc>{{ entry.page_url }}</loc>
                 <lastmod>{{ entry.edit_date|date("Y-m-d") }}</lastmod>
