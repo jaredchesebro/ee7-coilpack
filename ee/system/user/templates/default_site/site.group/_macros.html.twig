@@ -1,8 +1,29 @@
+{% macro showNav(item,aClasses = "nav-link",liClasses = "nav-item") %}
+    {% import _self as self %}
+    {% set pageUrl = item.url %}
+    {% set newTab = false %}
+    {% if item.entry.redirect_url|length %}
+        {% set pageUrl = item.entry.redirect_url %}
+        {% if item.entry.new_tab == '1' %}
+            {% set newTab = true %}
+        {% endif %}
+    {% endif %}
+    <li class="{{ liClasses }}{% if item.children|length %} dropdown{% endif %}">
+        <a href="{{ pageUrl }}" class="{{ aClasses }}{% if item.children|length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}"{% if newTab %} target="_blank"{% endif %}>{{ item.entry.title }}</a>
+        {% if item.children|length %}
+            <a href="#" class="nav-link d-inline-block ps-0 dropdown-toggle{% if item.active %} active{% endif %}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="visually-hidden">{{ item.entry.title }} Dropdown</span></a>
+            <ul class="dropdown-menu">
+                {% for child in item.children %}
+                    {{ self.showNav(child,'dropdown-item','') }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
 {% macro links(href,text,class,target) %}
     <li>
-        <a href="{{ href }}"{% if class != '' %} class="{{ class }}"{% endif %}{% if target != '' %} target="{{ target }}"{% endif %}>
-            {{ text }}
-        </a>
+        <a href="{{ href }}"{% if class|length %} class="{{ class }}"{% endif %}{% if target|length %} target="{{ target }}"{% endif %}>{{ text }}</a>
     </li>
 {% endmacro %}
 
@@ -11,4 +32,33 @@
         {% if webp|length %}<source srcset="{{ webp }}" type="image/webp" />{% endif %}
         <img src="{{ orig }}"{% if class|length %} class="{{ class}}"{% endif %} alt="{{ alt }}">
     </picture>
+{% endmacro %}
+
+{% macro formSubmit(form,textColor,linkColor,buttonStyle) %}
+    {% set captchaType = '' %}
+    {% if form.captcha|length %}
+        {% if form.captcha starts with '<i' %}
+            {% set captchaType = 'ee' %}
+        {% elseif form.captcha starts with '<s' %}
+            {% set captchaType = 'recaptcha' %}
+        {% endif %}
+    {% endif %}
+    {% if captchaType == 'ee' %}
+        <div class="mb-3">
+            <label for="captcha" class="form-label fw-bold">Captcha</label>
+            <div class="d-flex flex-row">
+                <div class="mb-3 flex-grow-1 bg-white p-1">{{ form.captcha|raw }}</div>
+                <div class="w-100 ps-4">
+                    <input type="text" id="captcha" name="captcha" class="form-control" value="{{ form.captcha_word }}" required>
+                    <div class="invalid-feedback">This is a required field.</div>
+                </div>
+            </div>
+        </div>
+    {% elseif captchaType == 'recaptcha' %}
+        {{ form.captcha|raw }}
+    {% endif %}
+    <button type="submit" class="btn btn-{{ buttonStyle }} shadow">Submit</button>
+    {% if captchaType == 'recaptcha' %}
+        <p class="mt-3{{ textColor }}"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" class="{{ linkColor }} link-opacity-75-hover">Privacy Policy</a> and <a href="https://policies.google.com/terms" class="{{ linkColor }} link-opacity-75-hover">Terms of Service</a> apply.</small><p>
+    {% endif %}
 {% endmacro %}

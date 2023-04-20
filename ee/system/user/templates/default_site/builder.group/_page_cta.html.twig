@@ -1,3 +1,4 @@
+{% from 'ee::site/_macros' import formSubmit %}
 {% set formId = 'form_' ~ loop.index %}
 {% set returnUrl = site_url ~ 'thank-you'%}
 {% set form = exp.email.contact_form({
@@ -87,30 +88,11 @@
                             <div class="invalid-feedback">This is a required field.</div>
                         </div>
 
-                        {% if form.captcha|length and form.captcha starts with '<img' %}
-                            <div class="mb-3">
-                                <label for="captcha" class="form-label fw-bold">Captcha</label>
-                                <div class="d-flex flex-row">
-                                    <div class="mb-3 flex-grow-1 bg-white p-1">{{ form.captcha|raw }}</div>
-                                    <div class="w-100 ps-4">
-                                        <input type="text" id="captcha" name="captcha" class="form-control" value="{{ form.captcha_word }}" required>
-                                        <div class="invalid-feedback">This is a required field.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% elseif form.captcha starts with '<script' %}
-                            {{ form.captcha|raw }}
-                        {% endif %}
-
                         {# Hidden Fields #}
                         <input type="hidden" id="name" name="name" value="">
                         <input type="hidden" id="subject" name="subject" value="">
 
-                        <button type="submit" class="btn btn-{{ buttonStyle }} shadow">Submit</button>
-
-                        {% if form.captcha starts with '<script' %}
-                            <p class="mt-3{{ textColor }}"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" class="{{ linkColor }} link-opacity-75-hover">Privacy Policy</a> and <a href="https://policies.google.com/terms" class="{{ linkColor }} link-opacity-75-hover">Terms of Service</a> apply.</small><p>
-                        {% endif %}
+                        {{ formSubmit(form,textColor,linkColor,buttonStyle) }}
 
                     {{ form.close()|raw }}
                 </div>    

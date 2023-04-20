@@ -1,5 +1,5 @@
 {% extends "ee::site._layout" %}
-{% import 'ee::site/_macros' as m %}
+{% from 'ee::site/_macros' import picture %}
 
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
 {% set category = exp.channel.categories({category: segment_3}).first() %}
@@ -30,7 +30,7 @@
                             {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
                             {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
                             {% set altText = post.featured_image.description %}
-                            {{ m.picture(featuredImage,featuredImageWebp,altText,'card-img-top') }}
+                            {{ picture(featuredImage,featuredImageWebp,altText,'card-img-top') }}
                         {% endif %}
                         <div class="card-body">
                             <h3 class="card-title h5">{{ post.title }}</h3>
