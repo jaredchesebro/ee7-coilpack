@@ -1,23 +1,18 @@
 {% set bg = '' %}
 {% set classes = 'bg-dark bg-gradient ' %}
 {% set heroTitle = entry.title %}
-
-{% set hero = entry.hero_content.first() %}
-
+{% set hero = entry.hero.first() %}
 {% if hero.background_image != '' %}
     {% set bg = hero.background_image %}
     {% set classes = '' %}
 {% endif %}
-
-{% if hero.heading != '' %}
+{% if hero.heading|length %}
     {% set heroTitle = hero.heading %}
 {% endif %}
-
 {% if segment_2 == 'category' and segment_3|length %}
     {% set heroTitle = 'Category: ' ~ category.cat_name %}
 {% endif %}
-
-<header class="{{ classes }}text-white py-5" {% if bg != '' %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
+<header class="{{ classes }}text-white py-5" {% if bg|length %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
