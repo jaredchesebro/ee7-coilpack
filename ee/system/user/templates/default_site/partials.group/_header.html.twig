@@ -10,9 +10,9 @@
         {# Navigation currently supports 2 levels #}
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% for item in exp.structure.nav({status:'open',show_depth:2}) %}
+                {%- for item in exp.structure.nav({status:'open',show_depth:2}) -%}
                     {{ showNav(item) }}
-                {% endfor %}
+                {%- endfor -%}
             </ul>
         </div>
     </div>

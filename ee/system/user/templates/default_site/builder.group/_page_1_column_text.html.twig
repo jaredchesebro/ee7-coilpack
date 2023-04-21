@@ -1,30 +1,30 @@
-{% for row in fluid %}
-    {% set bg = '' %}
-    {% set textColor = '' %}
-    {% set textAlignment = '' %}
-    {% if row.text_alignment|length %}
-        {% set textAlignment = 'text-' ~ row.text_alignment %}
-    {% endif %}
-    {% if row.style|length %}
-        {% set bg = 'bg-' ~ row.style + ' bg-gradient' %}
-        {% if row.style != 'light' %}
-            {% set textColor = 'text-white' %}
-        {% endif %}
-    {% endif %}
-    {% set classes = [bg, textColor, textAlignment] %}
-    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes|join(' ') }}">
+{%- for row in fluid -%}
+    {%- set bg = '' -%}
+    {%- set textColor = '' -%}
+    {%- set textAlignment = '' -%}
+    {%- if row.text_alignment | length -%}
+        {%- set textAlignment = 'text-' ~ row.text_alignment -%}
+    {%- endif -%}
+    {%- if row.style | length -%}
+        {%- set bg = 'bg-' ~ row.style + ' bg-gradient' -%}
+        {%- if row.style != 'light' -%}
+            {%- set textColor = 'text-white' -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- set classes = [bg, textColor, textAlignment] -%}
+    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes | join(' ') }}">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-10">
-                    {% if row.heading|length %}
+                    {%- if row.heading | length -%}
                         <h2>{{ row.heading }}</h2>
-                    {% endif %}
-                    {% if row.subheading|length %}
+                    {%- endif -%}
+                    {%- if row.subheading | length -%}
                         <h3>{{ row.subheading }}</h3>
-                    {% endif %}
-                    {{ row.rich_text|raw }}
+                    {%- endif -%}
+                    {{ row.rich_text | raw }}
                 </div>
             </div>
         </div>
     </section>
-{% endfor %}
+{%- endfor -%}

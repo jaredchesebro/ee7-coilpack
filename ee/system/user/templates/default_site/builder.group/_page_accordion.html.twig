@@ -1,26 +1,19 @@
-{% set accordionId = 'accordion-group-' ~ loop.index %}
-
-{% for row in fluid %}
-
-    {% set classes = '' %}
-    {% if row.style|length %}
-        {% set classes = 'text-bg-' ~ row.style ~ ' bg-gradient' %}
-    {% endif %}
-
-    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes }}">
+{%- set accordionId = 'accordion-group-' ~ loop.index -%}
+{%- for row in fluid -%}
+    {% if row.style | length %}
+        {%- set classes = 'text-bg-' ~ row.style ~ ' bg-gradient' -%}
+    {%- endif -%}
+    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes | default('') }}">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <h2>{{ row.heading }}</h2>
-                    {% if row.subheading|length %}
+                    {%- if row.subheading | length -%}
                         <h3>{{ row.subheading }}</h3>
-                    {% endif %}
+                    {%- endif -%}
                     {{ row.rich_text|raw }}
-
                     <div class="accordion" id="{{ accordionId }}">
-
-                        {% for accordion in row.accordion_panel %}
-
+                        {%- for accordion in row.accordion_panel -%}
                             <div class="accordion-item shadow">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}" aria-expanded="false" aria-controls="collapse-{{ loop.index }}">
@@ -33,14 +26,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                        {% endfor %}
-                        
+                        {%- endfor -%}
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
-    
-{% endfor %}
+{%- endfor -%}

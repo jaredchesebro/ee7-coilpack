@@ -1,20 +1,23 @@
-{% extends "ee::site._layout" %}
+{# Layout #}
+{%- extends "ee::site._layout" -%}
 
-{% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
-{% set entry = exp.channel.entries({channel:"home|pages",dynamic:true,limit:1}).first() %}
+{# Entries #}
+{%- set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() -%}
+{%- set entry = exp.channel.entries({channel:"home|pages",dynamic:true,limit:1}).first() -%}
 
-{% block hero %}
-    {% include 'ee::partials/_hero' %}
-{% endblock %}
+{# Layout Blocks #}
+{%- block hero -%}
+    {%- include 'ee::partials/_hero' -%}
+{%- endblock -%}
 
-{% block contents %}
-    {% if not entry|length %}
+{%- block contents -%}
+    {%- if not entry|length -%}
         {{ exp.redirect(404) }}
-    {% endif %}
-    {% for fluid in entry.page_builder %}
-        {% set fluidId = fluid.field.field_name ~ '-' ~ loop.index %}
-        {% set fluidName = fluid.field.field_name %}
-        {% if global.logged_in %}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{% endif %}
-        {% include 'ee::builder/_page_' ~ fluidName %}
-    {% endfor %}
-{% endblock %}
+    {%- endif -%}
+    {%- for fluid in entry.page_builder -%}
+        {%- set fluidId = fluid.field.field_name ~ '-' ~ loop.index -%}
+        {%- set fluidName = fluid.field.field_name -%}
+        {%- if global.logged_in -%}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{%- endif -%}
+        {%- include 'ee::builder/_page_' ~ fluidName -%}
+    {%- endfor -%}
+{%- endblock -%}

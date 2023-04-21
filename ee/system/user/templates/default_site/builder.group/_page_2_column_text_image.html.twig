@@ -1,36 +1,25 @@
 
-{% for row in fluid %}
-
-    {% set classes = '' %}
-    {% if row.style|length %}
-        {% set classes = 'text-bg-' ~ row.style ~ ' bg-gradient' %}
-    {% endif %}
-
-    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes }}">
+{%- for row in fluid -%}
+    {%- if row.style | length -%}
+        {%- set classes = 'text-bg-' ~ row.style ~ ' bg-gradient' -%}
+    {%- endif -%}
+    <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes | default('') }}">
         <div class="container py-5">
             <div class="row justify-content-center">
-
                 <div class="col-lg-5">
                     <h2>{{ row.heading }}</h2>
-                    {% if row.subheading|length %}
+                    {%- if row.subheading | length -%}
                         <h3>{{ row.subheading }}</h3>
-                    {% endif %}
-                    {{ row.rich_text|raw }}
+                    {%- endif -%}
+                    {{ row.rich_text | raw }}
                 </div>
-
-                {% if row.image|length %}
-                    {% set order = '' %}
-                    {% if row.image_alignment|length %}
-                        {% set order = row.image_alignment %}
-                    {% endif %}
-
+                {%- if row.image | length -%}
+                    {%- set order = row.image_alignment | default('') -%}
                     <div class="col-lg-5 {{ order }}">
-                        <img src="{{ row.image }}" class="img-fluid" alt="{{ row.image.description }}">
+                        <img src="{{ row.image }}" class="img-fluid" alt="{{ row.image.description | default('') }}">
                     </div>
-                {% endif %}
-
+                {%- endif -%}
             </div>
         </div>
     </section>
-
-{% endfor %}
+{%- endfor -%}

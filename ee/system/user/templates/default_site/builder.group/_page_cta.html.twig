@@ -1,7 +1,7 @@
-{% from 'ee::site/_macros' import formSubmit %}
-{% set formId = 'form_' ~ loop.index %}
-{% set returnUrl = site_url ~ 'thank-you'%}
-{% set form = exp.email.contact_form({
+{%- from 'ee::site/_macros' import formSubmit -%}
+{%- set formId = 'form_' ~ loop.index -%}
+{%- set returnUrl = site_url ~ 'thank-you' -%}
+{%- set form = exp.email.contact_form({
     recipients: 'hello@danggood.dev',
     charset: 'utf-8',
     form_class: 'needs-validation',
@@ -12,33 +12,26 @@
     form_attributes: {
         "novalidate": "true"
     }
-}) %}
+}) -%}
+{%- for row in fluid -%}
 
-{% for row in fluid %}
-    {% set bg = '' %}
-    {% set textColor = '' %}
-    {% set linkColor = 'link-primary' %}
-    {% set buttonStyle = 'primary' %}
-
-    {% if row.style|length %}
-        {% set bg = 'bg-' ~ row.style %}
-        
-        {% if row.style == 'primary' %}
-            {% set textColor = ' text-white' %}
-            {% set linkColor = 'text-reset' %}
-            {% set buttonStyle = 'outline-light' %}
-        {% endif %}
-    {% endif %}
-
-    {% set classes = [bg, 'bg-gradient'] %}
+    {%- if row.style | length -%}
+        {%- set bg = 'bg-' ~ row.style -%}
+        {%- if row.style == 'primary' -%}
+            {%- set textColor = ' text-white' -%}
+            {%- set linkColor = 'text-reset' -%}
+            {%- set buttonStyle = 'outline-light' -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- set classes = [bg|default(''), 'bg-gradient'] -%}
 
     <section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes|join(' ') }}">
         <div class="container py-5">
             <div class="row justify-content-center">
 
-                <div class="col-12 col-xl-5{{ textColor }}">
-                    {% if row.heading != '' %}<h2>{{ row.heading }}</h2>{% endif %}
-                    {% if row.subheading != '' %}<h3>{{ row.subheading }}</h3>{% endif %}
+                <div class="col-12 col-xl-5{{ textColor|default('') }}">
+                    {%- if row.heading | length -%}<h2>{{ row.heading }}</h2>{%- endif -%}
+                    {%- if row.subheading | length -%}<h3>{{ row.subheading }}</h3>{%- endif -%}
                     {{ row.rich_text|raw }}
                 </div>
 
@@ -92,7 +85,7 @@
                         <input type="hidden" id="name" name="name" value="">
                         <input type="hidden" id="subject" name="subject" value="">
 
-                        {{ formSubmit(form,textColor,linkColor,buttonStyle) }}
+                        {{ formSubmit(form,textColor|default(''),linkColor|default('link-primary'),buttonStyle|default('primary')) }}
 
                     {{ form.close()|raw }}
                 </div>    
@@ -100,4 +93,4 @@
             </div>
         </div>
     </section>
-{% endfor %}
+{%- endfor -%}
