@@ -20,5 +20,10 @@
     "dependencies": {
         "@popperjs/core": "^2.11.7",
         "bootstrap": "5.3.0-alpha2"
-    }
+    },
+    "browserslist": [
+        "last 2 versions",
+        "not dead",
+        "> 0.2%"
+    ]
 }
