@@ -3,16 +3,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {%- for entry in entries -%}
         {%- if entry.sitemap == '1' -%}
-            {%- set changeFrequency = 'monthly' -%}
-            {%- if entry.change_frequency != '' -%}
-                {%- set changeFrequency = entry.change_frequency.data -%}
-            {%- endif -%}
-            {%- set channelPriority = {1:'1.0',3:'0.9',5:'0.8'} -%}
+            {%- set changeFrequency = entry.change_frequency.selected | length ? entry.change_frequency.data : '' -%}
+            {%- set channelPriority = {
+                1:'1.0',
+                3:'0.9',
+                5:'0.8'
+            } -%}
             {%- set priority = channelPriority[entry.channel_id] -%}
             <url>
                 <loc>{{ entry.page_url }}</loc>
                 <lastmod>{{ entry.edit_date | date("Y-m-d") }}</lastmod>
-                <changefreq>{{ changeFrequency }}</changefreq>
+                <changefreq>{{ changeFrequency | default ('monthly') }}</changefreq>
                 <priority>{{ priority | default(0.5) }}</priority>
             </url>
         {%- endif -%}
