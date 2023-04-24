@@ -37,7 +37,7 @@
 
 {%- macro postcard(post) -%}
     {%- import _self as self -%}
-    <div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
         <article class="card h-100 shadow rounded-4">
             {% if post.featured_image | length %}
                 {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
