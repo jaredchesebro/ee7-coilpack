@@ -15,6 +15,13 @@
     </li>
 {%- endmacro -%}
 
+{% macro builder(type,fluid) %}
+    {%- set fluidId = fluid.field.field_name ~ '-' ~ loop.index -%}
+    {%- set fluidName = fluid.field.field_name -%}
+    {%- if global.logged_in -%}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{%- endif -%}
+    {%- include 'ee::builder/_' ~ type ~ '_' ~ fluidName -%}
+{% endmacro %}
+
 {%- macro links(href,text,class,target) -%}
     <li>
         <a href="{{ href }}"{% if class|length %} class="{{ class }}"{% endif %}{% if target %} target="_blank"{% endif %}>{{ text }}</a>
@@ -23,9 +30,35 @@
 
 {%- macro picture(orig,webp,alt,class) -%}
     <picture>
-        {% if webp|length %}<source srcset="{{ webp }}" type="image/webp" />{% endif %}
-        <img src="{{ orig }}"{% if class|length %} class="{{ class}}"{% endif %} alt="{{ alt }}">
+        {% if webp | length %}<source srcset="{{ webp }}" type="image/webp" />{% endif %}
+        <img src="{{ orig }}"{% if class | length %} class="{{ class }}"{% endif %} alt="{{ alt }}">
     </picture>
+{%- endmacro -%}
+
+{%- macro postcard(post) -%}
+    {%- import _self as self -%}
+    <div class="col-md-6 col-lg-4 col-xl-3">
+        <article class="card h-100 shadow rounded-4">
+            {% if post.featured_image | length %}
+                {% set featuredImage = post.featured_image.resize_crop({'resize:height': 600, 'crop:x': 100, 'crop:width': 800, 'crop:height': 600, 'crop:maintain_ratio': false }) %}
+                {% set featuredImageWebp = post.featured_image.webp({'height': 600, 'width': 800, 'maintain_ratio': false }) %}
+                {% set altText = post.featured_image.description %}
+                {{ self.picture(featuredImage,featuredImageWebp,altText,'card-img-top rounded-4') }}
+            {% endif %}
+            <div class="card-body">
+                <h3 class="card-title h5">{{ post.title }}</h3>
+                {% if post.categories | length %}
+                    <div class="mb-2">
+                        {% for category in post.categories %}
+                            <a class="badge text-bg-secondary text-decoration-none" href="/blog/category/{{ category.cat_url_title }}">{{ category.cat_name }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <p class="card-text">{{ post.post_description | str_words(25) }}</p>
+                <a href="{{ post.page_url }}" class="btn btn-primary">Read More<span class="visually-hidden">: {{ post.title }}</span></a>
+            </div>
+        </article>
+    </div>
 {%- endmacro -%}
 
 {%- macro formSubmit(form,textColor,linkColor,buttonStyle) -%}
@@ -56,3 +89,5 @@
         <p class="mt-3{{ textColor }}"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" class="{{ linkColor }} link-opacity-75-hover">Privacy Policy</a> and <a href="https://policies.google.com/terms" class="{{ linkColor }} link-opacity-75-hover">Terms of Service</a> apply.</small><p>
     {% endif %}
 {%- endmacro -%}
+
+

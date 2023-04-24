@@ -1,50 +1,41 @@
-{% from 'ee::site/_macros' import links %}
+{% from 'ee::partials/_macros' import links %}
 
 <footer>
     <section class="bg-dark bg-gradient text-white">
         <div class="container py-5">
             <div class="row">
-
                 {%- for row in globals.address -%}
                     {%- if loop.first -%}
                         <div class="col-lg-3">
                             <h2 class="h4">Address</h2>
                     {%- endif -%}
-
                     <address>{{ row.street_address }}<br>{{ row.city }}, {{ row.state }} {{ row.zipcode }}</address>
-
                     {%- if loop.last -%}
                         </div>
                     {%- endif -%}
                 {% endfor %}
-
                 {%- for row in globals.footer_links -%}
                     {%- if loop.first -%}
                         <div class="col-lg-3">
                             <h2 class="h4">Links</h2>
                             <ul class="list-unstyled">
                     {%- endif -%}
-
                     {%- set newTab = row.new_tab == '1' -%}
-                    {{- links(row.link,row.link_text,'link-light',newTab) -}}
-
+                    {{ links(row.link,row.link_text,'link-light',newTab) }}
                     {%- if loop.last -%}
                             </ul>
                         </div>
                     {%- endif -%}
                 {%- endfor -%}
-
                 {%- if globals.footer_content|length -%}
                     <div class="col-lg-6">
                         <h2 class="h4">Footer Content</h2>
                         {{ globals.footer_content|raw }}
                     </div>
                 {%- endif -%}
-
             </div>
         </div>
     </section>
-
     <section class="bg-secondary bg-gradient text-white text-center py-3">
         <div class="container">
             <div class="row">
@@ -54,5 +45,4 @@
             </div>
         </div>
     </section>
-    
 </footer>

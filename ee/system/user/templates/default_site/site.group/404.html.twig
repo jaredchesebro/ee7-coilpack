@@ -1,20 +1,20 @@
 {# Layout #}
-{%- extends "ee::site._layout" -%}
+{% extends "ee::site._layout" %}
+
+{# Macros #}
+{% from 'ee::partials/_macros' import builder %}
 
 {# Entries #}
-{%- set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() -%}
-{%- set entry = exp.channel.entries({channel:"404",limit:1}).first() -%}
+{% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"404",limit:1}).first() %}
 
 {# Layout Blocks #}
-{%- block hero -%}
-    {%- include 'ee::partials/_hero' -%}
-{%- endblock -%}
+{% block hero %}
+    {% include 'ee::partials/_hero' %}
+{% endblock %}
 
-{%- block contents -%}
+{% block contents %}
     {%- for fluid in entry.page_builder -%}
-        {%- set fluidId = fluid.field.field_name ~ '-' ~ loop.index -%}
-        {%- set fluidName = fluid.field.field_name -%}
-        {%- if global.logged_in -%}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{%- endif -%}
-        {%- include 'ee::builder/_page_' ~ fluidName -%}
+        {{ builder('page',fluid) }}
     {%- endfor -%}
-{%- endblock -%}
+{% endblock %}

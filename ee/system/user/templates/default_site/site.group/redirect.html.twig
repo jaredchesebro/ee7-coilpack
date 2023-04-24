@@ -1,5 +1,7 @@
+{# Entries #}
 {% set entry = exp.channel.entries({channel:"redirects",dynamic:true,limit:1}).first() %}
 
+{# Redirect #}
 {% set redirect = '404' %}
 {% if entry.redirect_url|length %}
     {% set redirect = entry.redirect_url %}
