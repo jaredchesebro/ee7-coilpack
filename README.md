@@ -20,6 +20,7 @@ Coilpack is a package that lets you harness the powerful Laravel ecosystem to br
 Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.
 
 - [Laravel Docs](https://laravel.com/docs)
+- [Laravel Mix Docs](https://laravel-mix.com/docs/main/what-is-mix)
 
 ### Twig
 
