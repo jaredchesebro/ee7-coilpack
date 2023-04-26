@@ -1,23 +1,19 @@
-{% set bg = '' %}
-{% set classes = 'bg-dark bg-gradient ' %}
-{% set heroTitle = entry.title %}
-{% set hero = entry.hero.first() %}
-{% if hero.background_image != '' %}
-    {% set bg = hero.background_image %}
-    {% set classes = '' %}
-{% endif %}
-{% if hero.heading | length %}
-    {% set heroTitle = hero.heading %}
-{% endif %}
-{% if segment_2 == 'category' and segment_3 | length %}
-    {% set heroTitle = 'Category: ' ~ category.cat_name %}
-{% endif %}
-<header class="{{ classes }}text-white py-5" {% if bg | length %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
-    <div class="container py-5">
-        <div class="row">
+{%- set hero = entry.hero.first() -%}
+{%- set height = hero.height.selected ? 'vh-100 ' : '' -%}
+{%- set classes = hero.background_image != '' ? height : height ~ ' bg-dark bg-gradient ' %}
+{%- set bg = hero.background_image != '' ? hero.background_image : '' -%}
+{%- set heroTitle = hero.heading | length ? hero.heading : entry.title -%}
+{%- if segment_2 == 'category' and segment_3 | length -%}
+    {%- set heroTitle = 'Category: ' ~ category.cat_name -%}
+{%- endif -%}
+<header class="hero {{ classes }}text-white py-5" {% if bg | length %}style="background: url({{ bg }}); background-size: cover; background-position: bottom center;"{% endif %}>
+    <div class="container py-5 h-100">
+        <div class="row h-100 align-items-center">
             <div class="col-12">
                 <h1>{{ heroTitle }}</h1>
-                {% if hero.subheading %}<p>{{ hero.subheading }}</p>{% endif %}
+                {%- if hero.subheading -%}
+                    <p>{{ hero.subheading }}</p>
+                {%- endif -%}
             </div>
         </div>
     </div>
