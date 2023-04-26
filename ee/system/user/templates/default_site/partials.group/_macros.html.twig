@@ -1,10 +1,12 @@
 {%- macro showNav(item,aClasses = "nav-link",liClasses = "nav-item") -%}
     {%- import _self as self -%}
-    {%- set pageUrl = item.entry.redirect_url|default(item.url) -%}
+    {% set urls = {0:item.url, 1:item.entry.internal_redirect.first().page_url, 2:item.entry.external_redirect}%}
+    {%- set selected = item.entry.redirect_type.selected | length ? item.entry.redirect_type.data : 0 -%}
+    {% set pageUrl = urls[selected] %}
     {%- set newTab = item.entry.new_tab == '1' -%}
-    <li class="{{ liClasses }}{% if item.children|length %} dropdown{% endif %}">
-        <a href="{{ pageUrl }}" class="{{ aClasses }}{% if item.children|length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}"{% if newTab %} target="_blank"{% endif %}>{{ item.entry.title }}</a>
-        {%- if item.children|length -%}
+    <li class="{{ liClasses }}{% if item.children | length %} dropdown{% endif %}">
+        <a href="{{ pageUrl }}" class="{{ aClasses }}{% if item.children | length %} d-inline-block pe-0{% endif %}{% if item.active %} active{% endif %}"{% if newTab %} target="_blank"{% endif %}>{{ item.entry.title }}</a>
+        {%- if item.children | length -%}
             <a href="#" class="nav-link d-inline-block ps-0 dropdown-toggle{% if item.active %} active{% endif %}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="visually-hidden">{{ item.entry.title }} Dropdown</span></a>
             <ul class="dropdown-menu">
                 {%- for child in item.children -%}
@@ -15,8 +17,8 @@
     </li>
 {%- endmacro -%}
 
-{% macro builder(type,fluid) %}
-    {%- set fluidId = fluid.field.field_name ~ '-' ~ loop.index -%}
+{% macro builder(type,fluid,index) %}
+    {%- set fluidId = fluid.field.field_name ~ '-' ~ index -%}
     {%- set fluidName = fluid.field.field_name -%}
     {%- if global.logged_in -%}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{%- endif -%}
     {%- include 'ee::builder/_' ~ type ~ '_' ~ fluidName -%}
@@ -24,7 +26,7 @@
 
 {%- macro links(href,text,class,target) -%}
     <li>
-        <a href="{{ href }}"{% if class|length %} class="{{ class }}"{% endif %}{% if target %} target="_blank"{% endif %}>{{ text }}</a>
+        <a href="{{ href }}"{% if class | length %} class="{{ class }}"{% endif %}{% if target %} target="_blank"{% endif %}>{{ text }}</a>
     </li>
 {%- endmacro -%}
 
