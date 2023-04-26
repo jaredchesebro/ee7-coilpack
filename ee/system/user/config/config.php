@@ -1,11 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 // ExpressionEngine Config Items
 // Find more configs and overrides at
 // https://docs.expressionengine.com/latest/general/system-configuration-overrides.html
 
 $environment = env('APP_ENV') ?: 'production';
 
-$config['app_version'] = '7.2.15';
+$config['app_version'] = '7.2.16';
 $config['site_license_key'] = env('EE_SITE_LICENSE_KEY');
 $config['encryption_key'] = env('EE_ENCRYPTION_KEY');
 $config['session_crypt_key'] = env('EE_SESSION_CRYPT_KEY');
