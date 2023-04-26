@@ -18,6 +18,6 @@
 
 {% block contents %}
     {%- for fluid in entry.page_builder -%}
-        {{ builder('page',fluid) }}
+        {{ builder('page',fluid,loop.index) }}
     {%- endfor -%}
 {% endblock %}
