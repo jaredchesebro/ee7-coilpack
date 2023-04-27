@@ -1,6 +1,3 @@
-{% for row in fluid %}
-    {% if row.heading != '' %}
-        {% set h = row.heading_size %}
-        <{{ h }}>{{ row.heading }}</{{ h }}>
-    {% endif %}
-{% endfor %}
+{%- set row = fluid.first() -%}
+{%- set h = row.heading_size | length ? row.heading_size : 'h2' -%}
+<{{ h }} class="mb-4">{{ row.heading | default(h ~ ' Heading') }}</{{ h }}>
