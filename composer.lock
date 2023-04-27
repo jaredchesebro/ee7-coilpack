@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6184a9e94285e37bb7fb8550f9b171ae",
+    "content-hash": "bb555798a765975962634396e624f017",
     "packages": [
         {
             "name": "brick/math",
@@ -434,16 +434,16 @@
         },
         {
             "name": "expressionengine/coilpack",
-            "version": "0.x-dev",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ExpressionEngine/Coilpack.git",
-                "reference": "6fa43387ccb90772d6166146b592f0103d0c94cb"
+                "reference": "5c07b6558d931589c87e084fd8e46b8b2a6028c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/6fa43387ccb90772d6166146b592f0103d0c94cb",
-                "reference": "6fa43387ccb90772d6166146b592f0103d0c94cb",
+                "url": "https://api.github.com/repos/ExpressionEngine/Coilpack/zipball/5c07b6558d931589c87e084fd8e46b8b2a6028c4",
+                "reference": "5c07b6558d931589c87e084fd8e46b8b2a6028c4",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +465,6 @@
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -503,9 +502,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ExpressionEngine/Coilpack/issues",
-                "source": "https://github.com/ExpressionEngine/Coilpack/tree/0.x"
+                "source": "https://github.com/ExpressionEngine/Coilpack/tree/1.0.0"
             },
-            "time": "2023-04-27T13:51:30+00:00"
+            "time": "2023-04-27T18:32:42+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -8420,9 +8419,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "expressionengine/coilpack": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
