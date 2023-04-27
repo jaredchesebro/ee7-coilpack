@@ -6,7 +6,7 @@
 
 {# Entries #}
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
-{% set entry = exp.channel.entries({channel:"home|pages",dynamic:true,limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"pages",dynamic:true,limit:1}).first() %}
 
 {# Layout Blocks #}
 {% block hero %}

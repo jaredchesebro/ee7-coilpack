@@ -1,1 +1,23 @@
-{{ exp.redirect(404) }}
+{# Layout #}
+{% extends "ee::site._layout" %}
+
+{# Macros #}
+{% from 'ee::partials/_macros' import builder %}
+
+{# Entries #}
+{% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
+{% set entry = exp.channel.entries({channel:"home",dynamic:true,limit:1}).first() %}
+
+{# Layout Blocks #}
+{% block hero %}
+    {%- if not entry | length -%}
+        {{ exp.redirect(404) }}
+    {%- endif -%}
+    {% include 'ee::partials/_hero' %}
+{% endblock %}
+
+{% block contents %}
+    {%- for fluid in entry.page_builder -%}
+        {{ builder('page',fluid,loop.index) }}
+    {%- endfor -%}
+{% endblock %}
