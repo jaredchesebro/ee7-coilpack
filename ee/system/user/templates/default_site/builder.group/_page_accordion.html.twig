@@ -12,7 +12,7 @@
                         <h3>{{ row.subheading }}</h3>
                     {%- endif -%}
                     {{ row.rich_text|raw }}
-                    <div class="accordion" id="{{ accordionId }}">
+                    <div class="accordion rounded-4" id="{{ accordionId }}">
                         {%- for accordion in row.accordion_panel -%}
                             <div class="accordion-item shadow">
                                 <h2 class="accordion-header">

@@ -1,0 +1,18 @@
+{%- set row = fluid.first() -%}
+<figure class="card rounded-4 border-0 mb-4">
+    <div class="row g-0 justify-content-center">
+
+        <div class="col-6 col-md-5 mb-4 mb-md-0 rotate-1">
+            <img src="{{ row.testimonial_image }}" class="img-fluid rounded-4" alt="{{ row.title }} Portrait">
+        </div>
+
+        <div class="col-10 col-md-7 d-flex flex-column justify-content-center text-center text-md-start ps-md-4">
+            <blockquote>{{ row.rich_text | raw }}</blockquote>
+            <figcaption>
+                <b>{{ row.title }}</b><br>
+                {{ row.job_title | default ('') }}
+            </figcaption>
+        </div>
+
+    </div>
+</figure>

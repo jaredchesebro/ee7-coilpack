@@ -1,7 +1,7 @@
 {%- set row = fluid.first() -%}
 {%- if row.file != '' -%}
-    <figure class="figure">
-        <img src="{{ row.file }}" class="figure-img img-fluid rounded" alt="{{ row.alt_text | default('') }}">
+    <figure class="figure rotate-1n">
+        <img src="{{ row.file }}" class="figure-img img-fluid rounded-4" alt="{{ row.alt_text | default('') }}">
         {%- if row.caption | length -%}<figcaption class="figure-caption text-center">{{ row.caption }}</figcaption>{%- endif -%}
     </figure>
 {%- endif -%}

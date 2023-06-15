@@ -6,6 +6,11 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 section {
     scroll-margin-top: 99px;
 }
@@ -23,3 +28,8 @@ section {
 .grecaptcha-badge {
     @include visually-hidden;
 }
+
+.rotate-1 {transform: rotate(1deg);}
+.rotate-1n {transform: rotate(-1deg);}
+.rotate-2 {transform: rotate(2deg);}
+.rotate-2n {transform: rotate(-2deg);}

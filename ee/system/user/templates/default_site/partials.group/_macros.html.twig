@@ -20,7 +20,6 @@
 {% macro builder(type,fluid,index) %}
     {%- set fluidId = fluid.field.field_name ~ '-' ~ index -%}
     {%- set fluidName = fluid.field.field_name -%}
-    {%- if global.logged_in -%}<!-- FLUID TYPE:{{ fluidName }} | INDEX:{{ loop.index }} -->{%- endif -%}
     {%- include 'ee::builder/_' ~ type ~ '_' ~ fluidName -%}
 {% endmacro %}
 

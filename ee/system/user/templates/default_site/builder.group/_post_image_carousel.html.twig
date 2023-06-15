@@ -1,6 +1,6 @@
 {%- set carouselId = 'carousel-' ~ index -%}
 {%- set row = fluid.first() -%}
-<div id="{{ carouselId }}" class="carousel slide mb-4" data-bs-ride="true">
+<div id="{{ carouselId }}" class="carousel slide rotate-1 mb-4" data-bs-ride="true">
     <div class="carousel-indicators">
         {%- for image in row.carousel_images -%}
             <button type="button" data-bs-target="#{{ carouselId }}" data-bs-slide-to="{{ loop.index0 }}" aria-label="Slide {{ loop.index }}" {% if loop.first %}class="active" aria-current="true"{% endif %}></button>
@@ -9,7 +9,7 @@
     <div class="carousel-inner">
         {%- for image in row.carousel_images -%}
             <div class="carousel-item{% if loop.first %} active{% endif %}">
-                <img src="{{ image.file }}" class="rounded d-block w-100" alt="{{ image.alt_text }}">
+                <img src="{{ image.file }}" class="rounded-4 d-block w-100" alt="{{ image.alt_text }}">
             </div>
         {%- endfor -%}
     </div>
