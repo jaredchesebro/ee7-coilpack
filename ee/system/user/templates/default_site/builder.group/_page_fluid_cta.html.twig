@@ -1,0 +1,95 @@
+{%- from 'ee::partials/_macros' import formSubmit -%}
+
+{%- set formId = 'form_' ~ loop.index -%}
+{%- set returnUrl = site_url ~ 'thank-you' -%}
+{%- set form = exp.email.contact_form({
+    recipients: 'hello@danggood.dev',
+    charset: 'utf-8',
+    form_class: 'needs-validation',
+    form_id: formId,
+    redirect: '5',
+    return: returnUrl,
+    replyto: 'yes',
+    form_attributes: {
+        "novalidate": "true"
+    }
+}) -%}
+
+{%- if fluid.fields.style | length -%}
+    {%- set bg = 'bg-' ~ fluid.fields.style.data -%}
+    {%- if fluid.fields.style.data == 'primary' -%}
+        {%- set textColor = ' text-white' -%}
+        {%- set linkColor = 'text-reset' -%}
+        {%- set buttonStyle = 'outline-light' -%}
+    {%- endif -%}
+{%- endif -%}
+{%- set classes = [bg|default(''), 'bg-gradient'] -%}
+
+<section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes|join(' ') }}">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-xl-5{{ textColor|default('') }}">
+                {%- if fluid.fields.heading | length -%}<h2>{{ fluid.fields.heading }}</h2>{%- endif -%}
+                {%- if fluid.fields.subheading | length -%}<h3>{{ fluid.fields.subheading }}</h3>{%- endif -%}
+                {{ fluid.fields.rich_text|raw }}
+            </div>
+
+            <div class="col-xl-5">
+                {{ form.open()|raw }}
+                    
+                    <div class="row">
+
+                        <div class="col-12 col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" required>
+                                <label for="firstName" class="form-label">First Name</label>
+                                <div class="invalid-feedback">This is a required field.</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" required>
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <div class="invalid-feedback">This is a required field.</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" id="from" name="from" placeholder="name@example.com" value="{{ form.member_email }}" aria-describedby="emailHelp" required>
+                        <label for="from" class="form-label">Email Address</label>
+                        <div id="emailHelp" class="form-text{{ textColor }}">We'll never share your email with anyone else.</div>
+                        <div class="invalid-feedback">This is a required field.</div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="subjectSelect" name="subjectSelect" aria-label="Subject" required>
+                            <option value="" selected>Select One</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Support Request">Support Request</option>
+                        </select>
+                        <label for="subjectSelect">Subject</label>
+                        <div class="invalid-feedback">This is a required field.</div>
+                    </div>
+
+                    <div class="mb-3 form-floating">
+                        <textarea class="form-control" id="message" name="message" placeholder="Message" style="height: 120px" required></textarea>
+                        <label for="message" class="form-label">Message</label>
+                        <div class="invalid-feedback">This is a required field.</div>
+                    </div>
+
+                    {# Hidden Fields #}
+                    <input type="hidden" id="name" name="name" value="">
+                    <input type="hidden" id="subject" name="subject" value="">
+
+                    {{ formSubmit(form,textColor|default(''),linkColor|default('link-primary'),buttonStyle|default('primary')) }}
+
+                {{ form.close()|raw }}
+            </div>    
+
+        </div>
+    </div>
+</section>

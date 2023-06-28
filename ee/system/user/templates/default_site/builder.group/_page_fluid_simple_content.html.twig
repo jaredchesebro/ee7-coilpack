@@ -1,0 +1,13 @@
+{% set heading = '' %}
+{% set richText = '' %}
+
+{% for field in fluid.fields %}
+    {% if field._field_name == 'heading' %}
+        {% set heading = field %}
+    {% elseif field._field_name == 'rich_text' %}
+         {% set richText = field %}
+    {% endif %}
+{% endfor %}
+
+{% if heading | length %}<h2>{{ heading }}</h2>{% endif %}
+{{ richText | raw }}

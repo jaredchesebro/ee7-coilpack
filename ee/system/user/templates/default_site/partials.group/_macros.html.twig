@@ -18,8 +18,12 @@
 {%- endmacro -%}
 
 {% macro builder(type,fluid,index) %}
-    {%- set fluidId = fluid.field.field_name ~ '-' ~ index -%}
-    {%- set fluidName = fluid.field.field_name -%}
+    {% if fluid._field_type == 'field_group' %}
+        {% set fluidName = fluid._field_name %}
+    {% else %}
+        {%- set fluidName = fluid.field.field_name -%}
+    {% endif %}
+    {%- set fluidId = fluidName ~ '-' ~ index -%}
     {%- include 'ee::builder/_' ~ type ~ '_' ~ fluidName -%}
 {% endmacro %}
 

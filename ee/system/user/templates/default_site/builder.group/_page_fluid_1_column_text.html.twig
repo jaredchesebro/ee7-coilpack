@@ -1,0 +1,28 @@
+{%- set bg = '' -%}
+{%- set textColor = '' -%}
+{%- set textAlignment = '' -%}
+{%- if fluid.fields.text_alignment | length -%}
+    {%- set textAlignment = 'text-' ~ fluid.fields.text_alignment.data -%}
+{%- endif -%}
+{%- if fluid.fields.style | length -%}
+    {%- set bg = 'bg-' ~ fluid.fields.style.data + ' bg-gradient' -%}
+    {%- if fluid.fields.style.data != 'light' -%}
+        {%- set textColor = 'text-white' -%}
+    {%- endif -%}
+{%- endif -%}
+{%- set classes = [bg, textColor, textAlignment] -%}
+<section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes | join(' ') }}">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                {%- if fluid.fields.heading | length -%}
+                    <h2>{{ fluid.fields.heading }}</h2>
+                {%- endif -%}
+                {%- if fluid.fields.subheading | length -%}
+                    <h3>{{ fluid.fields.subheading }}</h3>
+                {%- endif -%}
+                {{ fluid.fields.rich_text | raw }}
+            </div>
+        </div>
+    </div>
+</section>

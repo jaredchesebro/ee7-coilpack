@@ -1,0 +1,23 @@
+{%- set classes = fluid.fields.style | length ? 'text-bg-' ~ fluid.fields.style.data ~ ' bg-gradient' : '' -%}
+<section id="{{ fluidId }}" data-block="{{ fluidName }}" class="{{ classes }}">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 offset-lg-1 d-flex flex-column justify-content-center">
+                <h2>{{ fluid.fields.heading }}</h2>
+                {%- if fluid.fields.subheading | length -%}
+                    <h3 class="h6 fw-semibold text-uppercase">{{ fluid.fields.subheading }}</h3>
+                {%- endif -%}
+                {{ fluid.fields.rich_text | raw }}
+            </div>
+            {%- if fluid.fields.single_image | length -%}
+                {%- set order = fluid.fields.image_alignment.data -%}
+                {%- set rotate = fluid.fields.image_alignment.value == 'order-first' ? '1n' : '1' -%}
+                <div class="col-lg-4 {{ order }} offset-lg-1">
+                    <div class="ratio ratio-1x1">
+                        <img src="{{ fluid.fields.single_image }}" class="img-fluid rounded-4 rotate-{{ rotate }} object-fit-cover" alt="{{ fluid.fields.image.description | default('') }}">
+                    </div>
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</section>
