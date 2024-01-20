@@ -3,6 +3,7 @@
 
 {# Macros #}
 {% from 'ee::partials/_macros' import builder %}
+{%- from 'ee::partials/_macros' import formSubmit -%}
 
 {# Entries #}
 {% set globals = exp.channel.entries({channel:"global_variables",limit:1}).first() %}
@@ -39,18 +40,96 @@
             </div>
         </div>
     </article>
-    {%- set comments = exp.comment.entries({
-        entry_id: entry.entry_id,
-        limit: "30",
-        orderby: "date",
-        sort: "asc",
-    }) -%}
-    {%- if comments | length -%}
-        <aside>
-            <h2>Comments</h2>
-            {%- for entry in comments -%}
-                {{ entry.comment }}
-            {%- endfor -%}
-        </aside>
-    {%- endif -%}
+
+    {% set form = exp.comment.form({
+        entry_id: entry.entry_id, 
+        preview:"main/comment", 
+        form_class: 'needs-validation',
+        form_attributes: {
+            "novalidate": "true"
+        }
+    }) %}
+    
+        <section class="bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        {% set preview = exp.comment.preview() %}
+
+                        <h2>Comments</h2>
+
+                        {% for comment in exp.comment.entries({entry_id: entry.entry_id}) %}
+                            {#{{ dump(comment) }}#}
+                            <strong>{{ comment.author }} said:</strong>
+                            <div class="border rounded p-3 bg-white">
+                                {{ comment.comment | raw }}
+                            </div>
+                            <span class="d-block text-secondary small mb-3">Posted on {{ comment.comment_date | date("m/d/Y") }}</span>
+                        {% endfor %}
+
+                        {{ preview.comment | raw}}
+                        <h3 class="h5">New Comment</h3>
+                        {{ form.open() | raw }}
+
+                            {% if form.logged_out %}
+                                <div class="row">
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" required>
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <div class="invalid-feedback">This is a required field.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" required>
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <div class="invalid-feedback">This is a required field.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mb-3 form-floating">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{{ form.member_email }}" aria-describedby="emailHelp" required>
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <div id="emailHelp" class="form-text{{ textColor }}">We'll never share your email with anyone else.</div>
+                                    <div class="invalid-feedback">This is a required field.</div>
+                                </div>
+                                
+                                {#<label for="location">Location:</label> <input type="text" name="location" value="{{ form.location }}" size="50" /><br />
+                                <label for="url">URL:</label> <input type="text" name="url" value="{{ form.url }}" size="50" /><br />#}
+
+                                <input type="hidden" id="name" name="name" value="">
+                            {% endif %}
+
+                            <div class="mb-3 form-floating">
+                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment" style="height: 120px" required>{{ form.comment }}</textarea>
+                                <label for="comment" class="form-label">Comment</label>
+                                <div class="invalid-feedback">This is a required field.</div>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="save_info" name="save_info" value="yes"{% if form.save_info %} checked="checked"{% endif %}>
+                                <label class="form-check-label" for="save_info">Remember my personal information</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="notify_me" name="notify_me" value="yes" {% if form.notify_me %} checked="checked"{% endif %}>
+                                <label class="form-check-label" for="notify_me">Notify me of follow-up comments?</label>
+                            </div>
+
+                            {{ formSubmit(form,textColor|default(''),linkColor|default('link-primary'),buttonStyle|default('primary')) }}
+                            <input type="submit" name="preview" value="Preview" />
+
+                        {{ form.close() | raw }}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
 {% endblock %}

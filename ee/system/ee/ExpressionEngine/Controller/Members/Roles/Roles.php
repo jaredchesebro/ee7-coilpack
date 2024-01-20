@@ -540,6 +540,11 @@ class Roles extends AbstractRolesController
 
         // template_access
         $template_ids = [];
+        // ensure templates from other sites are always in
+        if (!$role->isNew() && bool_config_item('multiple_sites_enabled')) {
+            $template_ids = $role->AssignedTemplates->filter('site_id', '!=', ee()->config->item('site_id'))->pluck('template_id');
+        }
+        // add posted template IDs
         if (!empty(ee('Request')->post('assigned_templates'))) {
             $posted_assigned_templates = ee('Request')->post('assigned_templates');
             if (!is_array($posted_assigned_templates) && strpos($posted_assigned_templates, '[') === 0) {
@@ -586,21 +591,27 @@ class Roles extends AbstractRolesController
                 }
             }
         } else {
-            // Clear the slate and remove all the permissions this form has set
-            ee('Model')->get('Permission')
+            $existingRolePermissions = ee('Model')->get('Permission')
                 ->filter('permission', 'IN', $this->getPermissionKeys())
                 ->filter('site_id', $site_id)
                 ->filter('role_id', $role->getId())
-                ->delete();
-
+                ->all();
+            $existingRolePermissionNames = $existingRolePermissions->pluck('permission');
+            // remove the permissions that are no longer allowed
+            foreach ($existingRolePermissions as $permission) {
+                $permIndex = array_search($permission->permission, $allowed_perms);
+                if ($permIndex === false || empty($allowed_perms[$permIndex])) {
+                    $role->Permissions->getAssociation()->remove($permission);
+                }
+            }
             // Add back in all the allowances
             foreach ($allowed_perms as $perm) {
-                if (!empty($perm)) {
-                    ee('Model')->make('Permission', [
-                        'role_id' => $role->getId(),
+                if (!empty($perm) && !in_array($perm, $existingRolePermissionNames)) {
+                    $p = ee('Model')->make('Permission', [
                         'site_id' => $site_id,
                         'permission' => $perm
-                    ])->save();
+                    ]);
+                    $role->Permissions->getAssociation()->add($p);
                 }
             }
         }
