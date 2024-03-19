@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: EE CLI
+## Usage: ee
+## Example: ddev ee <command>
+
+php artisan eecli "$@"

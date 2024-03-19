@@ -266,3 +266,5 @@ hooks:
     - composer: install --no-interaction --no-progress --optimize-autoloader
     - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
     - exec: npx mix --production
+  pre-stop:
+    - exec: php artisan eecli backup:database
