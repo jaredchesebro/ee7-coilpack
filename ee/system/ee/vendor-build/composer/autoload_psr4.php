@@ -16,6 +16,7 @@ return array(
     'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' => array($vendorDir . '/expressionengine/flysystem-cached-adapter/src'),
     'ExpressionEngine\\Dependency\\League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'ExpressionEngine\\Dependency\\IPLib\\' => array($vendorDir . '/mlocati/ip-lib/src'),
     'ExpressionEngine\\Dependency\\Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'ExpressionEngine\\Dependency\\DASPRiD\\Enum\\' => array($vendorDir . '/dasprid/enum/src'),
     'ExpressionEngine\\Dependency\\BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
