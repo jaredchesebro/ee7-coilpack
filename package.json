@@ -1,4 +1,6 @@
 {
+    "name": "ee7-coilpack",
+    "description": "A Laravel Mix configuration for using Bootstrap with ExpressionEngine Coilpack",
     "private": true,
     "scripts": {
         "dev": "npm run development",
