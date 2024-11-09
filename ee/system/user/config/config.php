@@ -6,7 +6,7 @@
 
 $environment = env('APP_ENV') ?: 'production';
 
-$config['app_version'] = '7.4.11';
+$config['app_version'] = '7.5.3';
 $config['site_license_key'] = env('EE_SITE_LICENSE_KEY');
 $config['encryption_key'] = env('EE_ENCRYPTION_KEY');
 $config['session_crypt_key'] = env('EE_SESSION_CRYPT_KEY');
@@ -23,7 +23,7 @@ $config['allow_php'] = 'n';
 $config['allow_dictionary_pw'] = 'n';
 $config['name_of_dictionary_file'] = 'dictionary.txt';
 $config['pw_min_len'] = '8';
-$config['password_lockout'] = 'y';
+$config['password_lockout'] = 'n';
 $config['password_lockout_interval'] = '15';
 $config['expire_session_on_browser_close'] = 'y';
 $config['remove_unparsed_vars'] = 'n';
