@@ -6,7 +6,7 @@
 
 $environment = env('APP_ENV') ?: 'production';
 
-$config['app_version'] = '7.5.3';
+$config['app_version'] = '7.5.6';
 $config['site_license_key'] = env('EE_SITE_LICENSE_KEY');
 $config['encryption_key'] = env('EE_ENCRYPTION_KEY');
 $config['session_crypt_key'] = env('EE_SESSION_CRYPT_KEY');
