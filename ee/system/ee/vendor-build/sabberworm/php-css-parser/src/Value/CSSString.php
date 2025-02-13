@@ -7,6 +7,11 @@ use ExpressionEngine\Dependency\Sabberworm\CSS\Parsing\ParserState;
 use ExpressionEngine\Dependency\Sabberworm\CSS\Parsing\SourceException;
 use ExpressionEngine\Dependency\Sabberworm\CSS\Parsing\UnexpectedEOFException;
 use ExpressionEngine\Dependency\Sabberworm\CSS\Parsing\UnexpectedTokenException;
+/**
+ * This class is a wrapper for quoted strings to distinguish them from keywords.
+ *
+ * `CSSString`s always output with double quotes.
+ */
 class CSSString extends PrimitiveValue
 {
     /**
@@ -84,9 +89,11 @@ class CSSString extends PrimitiveValue
         return $this->render(new OutputFormat());
     }
     /**
+     * @param OutputFormat|null $oOutputFormat
+     *
      * @return string
      */
-    public function render(OutputFormat $oOutputFormat)
+    public function render($oOutputFormat)
     {
         $sString = \addslashes($this->sString);
         $sString = \str_replace("\n", '\\A', $sString);

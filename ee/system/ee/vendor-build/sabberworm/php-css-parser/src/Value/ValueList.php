@@ -3,6 +3,12 @@
 namespace ExpressionEngine\Dependency\Sabberworm\CSS\Value;
 
 use ExpressionEngine\Dependency\Sabberworm\CSS\OutputFormat;
+/**
+ * A `ValueList` represents a lists of `Value`s, separated by some separation character
+ * (mostly `,`, whitespace, or `/`).
+ *
+ * There are two types of `ValueList`s: `RuleValueList` and `CSSFunction`
+ */
 abstract class ValueList extends Value
 {
     /**
@@ -77,9 +83,11 @@ abstract class ValueList extends Value
         return $this->render(new OutputFormat());
     }
     /**
+     * @param OutputFormat|null $oOutputFormat
+     *
      * @return string
      */
-    public function render(OutputFormat $oOutputFormat)
+    public function render($oOutputFormat)
     {
         return $oOutputFormat->implode($oOutputFormat->spaceBeforeListArgumentSeparator($this->sSeparator) . $this->sSeparator . $oOutputFormat->spaceAfterListArgumentSeparator($this->sSeparator), $this->aComponents);
     }

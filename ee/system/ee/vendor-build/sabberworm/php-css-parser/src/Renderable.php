@@ -9,9 +9,11 @@ interface Renderable
      */
     public function __toString();
     /**
+     * @param OutputFormat|null $oOutputFormat
+     *
      * @return string
      */
-    public function render(OutputFormat $oOutputFormat);
+    public function render($oOutputFormat);
     /**
      * @return int
      */

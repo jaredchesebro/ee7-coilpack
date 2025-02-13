@@ -2,6 +2,7 @@
 
 namespace ExpressionEngine\Dependency\Sabberworm\CSS;
 
+use ExpressionEngine\Dependency\Sabberworm\CSS\Comment\Commentable;
 use ExpressionEngine\Dependency\Sabberworm\CSS\Parsing\OutputException;
 class OutputFormatter
 {
@@ -192,6 +193,26 @@ class OutputFormatter
         $sNextToLast = \array_pop($sString);
         \array_push($sString, $sNextToLast . $sLast);
         return \implode(';', $sString);
+    }
+    /**
+     *
+     * @param array<Commentable> $aComments
+     *
+     * @return string
+     */
+    public function comments(Commentable $oCommentable)
+    {
+        if (!$this->oFormat->bRenderComments) {
+            return '';
+        }
+        $sResult = '';
+        $aComments = $oCommentable->getComments();
+        $iLastCommentIndex = \count($aComments) - 1;
+        foreach ($aComments as $i => $oComment) {
+            $sResult .= $oComment->render($this->oFormat);
+            $sResult .= $i === $iLastCommentIndex ? $this->spaceAfterBlocks() : $this->spaceBetweenBlocks();
+        }
+        return $sResult;
     }
     /**
      * @param string $sSpaceString

@@ -16,7 +16,13 @@ namespace ExpressionEngine\Dependency\Assert;
 use Throwable;
 interface AssertionFailedException extends Throwable
 {
+    /**
+     * @return string|null
+     */
     public function getPropertyPath();
+    /**
+     * @return mixed
+     */
     public function getValue();
-    public function getConstraints();
+    public function getConstraints() : array;
 }

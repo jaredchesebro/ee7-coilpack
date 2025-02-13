@@ -122,6 +122,12 @@ class OutputFormat
      */
     public $bIgnoreExceptions = \false;
     /**
+     * Render comments for lists and RuleSets
+     *
+     * @var bool
+     */
+    public $bRenderComments = \false;
+    /**
      * @var OutputFormatter|null
      */
     private $oFormatter = null;
@@ -273,7 +279,7 @@ class OutputFormat
     public static function createCompact()
     {
         $format = self::create();
-        $format->set('Space*Rules', "")->set('Space*Blocks', "")->setSpaceAfterRuleName('')->setSpaceBeforeOpeningBrace('')->setSpaceAfterSelectorSeparator('');
+        $format->set('Space*Rules', "")->set('Space*Blocks', "")->setSpaceAfterRuleName('')->setSpaceBeforeOpeningBrace('')->setSpaceAfterSelectorSeparator('')->setRenderComments(\false);
         return $format;
     }
     /**
@@ -284,7 +290,7 @@ class OutputFormat
     public static function createPretty()
     {
         $format = self::create();
-        $format->set('Space*Rules', "\n")->set('Space*Blocks', "\n")->setSpaceBetweenBlocks("\n\n")->set('SpaceAfterListArgumentSeparator', ['default' => '', ',' => ' ']);
+        $format->set('Space*Rules', "\n")->set('Space*Blocks', "\n")->setSpaceBetweenBlocks("\n\n")->set('SpaceAfterListArgumentSeparator', ['default' => '', ',' => ' '])->setRenderComments(\true);
         return $format;
     }
 }
