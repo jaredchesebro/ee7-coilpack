@@ -93,7 +93,7 @@ class Pattern extends AbstractRange
      */
     public static function parseString($range, $flags = 0)
     {
-        if (!\is_string($range) || \strpos($range, '*') === \false) {
+        if (!is_string($range) || strpos($range, '*') === \false) {
             return null;
         }
         if ($range === '*.*.*.*') {
@@ -103,33 +103,33 @@ class Pattern extends AbstractRange
             return new static(IPv6::parseString('::'), IPv6::parseString('ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff'), 8);
         }
         $matches = null;
-        if (\strpos($range, '.') !== \false && \preg_match('/^[^*]+((?:\\.\\*)+)$/', $range, $matches)) {
-            $asterisksCount = \strlen($matches[1]) >> 1;
+        if (strpos($range, '.') !== \false && preg_match('/^[^*]+((?:\.\*)+)$/', $range, $matches)) {
+            $asterisksCount = strlen($matches[1]) >> 1;
             if ($asterisksCount > 0) {
-                $missingDots = 3 - \substr_count($range, '.');
+                $missingDots = 3 - substr_count($range, '.');
                 if ($missingDots > 0) {
-                    $range .= \str_repeat('.*', $missingDots);
+                    $range .= str_repeat('.*', $missingDots);
                     $asterisksCount += $missingDots;
                 }
             }
-            $fromAddress = IPv4::parseString(\str_replace('*', '0', $range), $flags);
+            $fromAddress = IPv4::parseString(str_replace('*', '0', $range), $flags);
             if ($fromAddress === null) {
                 return null;
             }
-            $fixedBytes = \array_slice($fromAddress->getBytes(), 0, -$asterisksCount);
-            $otherBytes = \array_fill(0, $asterisksCount, 255);
-            $toAddress = IPv4::fromBytes(\array_merge($fixedBytes, $otherBytes));
+            $fixedBytes = array_slice($fromAddress->getBytes(), 0, -$asterisksCount);
+            $otherBytes = array_fill(0, $asterisksCount, 255);
+            $toAddress = IPv4::fromBytes(array_merge($fixedBytes, $otherBytes));
             return new static($fromAddress, $toAddress, $asterisksCount);
         }
-        if (\strpos($range, ':') !== \false && \preg_match('/^[^*]+((?::\\*)+)$/', $range, $matches)) {
-            $asterisksCount = \strlen($matches[1]) >> 1;
-            $fromAddress = IPv6::parseString(\str_replace('*', '0', $range));
+        if (strpos($range, ':') !== \false && preg_match('/^[^*]+((?::\*)+)$/', $range, $matches)) {
+            $asterisksCount = strlen($matches[1]) >> 1;
+            $fromAddress = IPv6::parseString(str_replace('*', '0', $range));
             if ($fromAddress === null) {
                 return null;
             }
-            $fixedWords = \array_slice($fromAddress->getWords(), 0, -$asterisksCount);
-            $otherWords = \array_fill(0, $asterisksCount, 0xffff);
-            $toAddress = IPv6::fromWords(\array_merge($fixedWords, $otherWords));
+            $fixedWords = array_slice($fromAddress->getWords(), 0, -$asterisksCount);
+            $otherWords = array_fill(0, $asterisksCount, 0xffff);
+            $toAddress = IPv6::fromWords(array_merge($fixedWords, $otherWords));
             return new static($fromAddress, $toAddress, $asterisksCount);
         }
         return null;
@@ -146,26 +146,26 @@ class Pattern extends AbstractRange
         }
         switch (\true) {
             case $this->fromAddress instanceof \ExpressionEngine\Dependency\IPLib\Address\IPv4:
-                $chunks = \explode('.', $this->fromAddress->toString());
-                $chunks = \array_slice($chunks, 0, -$this->asterisksCount);
-                $chunks = \array_pad($chunks, 4, '*');
-                $result = \implode('.', $chunks);
+                $chunks = explode('.', $this->fromAddress->toString());
+                $chunks = array_slice($chunks, 0, -$this->asterisksCount);
+                $chunks = array_pad($chunks, 4, '*');
+                $result = implode('.', $chunks);
                 break;
             case $this->fromAddress instanceof \ExpressionEngine\Dependency\IPLib\Address\IPv6:
                 if ($long) {
-                    $chunks = \explode(':', $this->fromAddress->toString(\true));
-                    $chunks = \array_slice($chunks, 0, -$this->asterisksCount);
-                    $chunks = \array_pad($chunks, 8, '*');
-                    $result = \implode(':', $chunks);
+                    $chunks = explode(':', $this->fromAddress->toString(\true));
+                    $chunks = array_slice($chunks, 0, -$this->asterisksCount);
+                    $chunks = array_pad($chunks, 8, '*');
+                    $result = implode(':', $chunks);
                 } elseif ($this->asterisksCount === 8) {
                     $result = '*:*:*:*:*:*:*:*';
                 } else {
                     $bytes = $this->toAddress->getBytes();
-                    $bytes = \array_slice($bytes, 0, -$this->asterisksCount * 2);
-                    $bytes = \array_pad($bytes, 16, 1);
+                    $bytes = array_slice($bytes, 0, -$this->asterisksCount * 2);
+                    $bytes = array_pad($bytes, 16, 1);
                     $address = IPv6::fromBytes($bytes);
-                    $before = \substr($address->toString(\false), 0, -\strlen(':101') * $this->asterisksCount);
-                    $result = $before . \str_repeat(':*', $this->asterisksCount);
+                    $before = substr($address->toString(\false), 0, -strlen(':101') * $this->asterisksCount);
+                    $result = $before . str_repeat(':*', $this->asterisksCount);
                 }
                 break;
             default:
@@ -255,7 +255,7 @@ class Pattern extends AbstractRange
                 $bytes = array(0, 0, 0, 0);
                 break;
             default:
-                $bytes = \array_pad(\array_fill(0, 4 - $this->asterisksCount, 255), 4, 0);
+                $bytes = array_pad(array_fill(0, 4 - $this->asterisksCount, 255), 4, 0);
                 break;
         }
         return IPv4::fromBytes($bytes);
@@ -279,12 +279,14 @@ class Pattern extends AbstractRange
         $fromAddress = $this->fromAddress;
         $maxPrefix = $fromAddress::getNumberOfBits();
         $prefix = $this->getNetworkPrefix();
-        return \pow(2, $maxPrefix - $prefix);
+        return pow(2, $maxPrefix - $prefix);
     }
     /**
-     * @return float|int
+     * {@inheritdoc}
+     *
+     * @see \IPLib\Range\RangeInterface::getNetworkPrefix()
      */
-    private function getNetworkPrefix()
+    public function getNetworkPrefix()
     {
         switch ($this->getAddressType()) {
             case AddressType::T_IPv4:

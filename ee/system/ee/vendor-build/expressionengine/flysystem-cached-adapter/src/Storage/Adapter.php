@@ -51,17 +51,17 @@ class Adapter extends AbstractCache
      */
     protected function getTime($time = 0)
     {
-        return \intval(\microtime(\true)) + $time;
+        return intval(microtime(\true)) + $time;
     }
     /**
      * {@inheritdoc}
      */
     public function setFromStorage($json)
     {
-        list($cache, $complete, $expire) = \json_decode($json, \true);
+        list($cache, $complete, $expire) = json_decode($json, \true);
         if (!$expire || $expire > $this->getTime()) {
-            $this->cache = \is_array($cache) ? $cache : [];
-            $this->complete = \is_array($complete) ? $complete : [];
+            $this->cache = is_array($cache) ? $cache : [];
+            $this->complete = is_array($complete) ? $complete : [];
         } else {
             $this->adapter->delete($this->file);
         }
@@ -84,7 +84,7 @@ class Adapter extends AbstractCache
     public function getForStorage()
     {
         $cleaned = $this->cleanContents($this->cache);
-        return \json_encode([$cleaned, $this->complete, $this->expire]);
+        return json_encode([$cleaned, $this->complete, $this->expire]);
     }
     /**
      * {@inheritdoc}

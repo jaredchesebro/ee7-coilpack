@@ -25,8 +25,8 @@ class CachedAdapterSpec extends ObjectBehavior
     }
     public function it_is_initializable()
     {
-        $this->shouldHaveType('ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\CachedAdapter');
-        $this->shouldHaveType('ExpressionEngine\\Dependency\\League\\Flysystem\\AdapterInterface');
+        $this->shouldHaveType('ExpressionEngine\Dependency\League\Flysystem\Cached\CachedAdapter');
+        $this->shouldHaveType('ExpressionEngine\Dependency\League\Flysystem\AdapterInterface');
     }
     public function it_should_forward_read_streams()
     {
@@ -41,7 +41,7 @@ class CachedAdapterSpec extends ObjectBehavior
         $path = 'path.txt';
         $contents = 'contents';
         $config = new Config();
-        $response = \compact('path', 'contents', 'type');
+        $response = compact('path', 'contents', 'type');
         $this->adapter->write($path, $contents, $config)->willReturn($response);
         $this->cache->updateObject($path, $response, \true)->shouldBeCalled();
         $this->write($path, $contents, $config)->shouldBe($response);
@@ -50,25 +50,25 @@ class CachedAdapterSpec extends ObjectBehavior
     {
         $type = 'file';
         $path = 'path.txt';
-        $stream = \tmpfile();
+        $stream = tmpfile();
         $config = new Config();
-        $response = \compact('path', 'stream', 'type');
+        $response = compact('path', 'stream', 'type');
         $this->adapter->writeStream($path, $stream, $config)->willReturn($response);
         $this->cache->updateObject($path, ['contents' => \false] + $response, \true)->shouldBeCalled();
         $this->writeStream($path, $stream, $config)->shouldBe($response);
-        \fclose($stream);
+        fclose($stream);
     }
     public function it_should_cache_streamed_updates()
     {
         $type = 'file';
         $path = 'path.txt';
-        $stream = \tmpfile();
+        $stream = tmpfile();
         $config = new Config();
-        $response = \compact('path', 'stream', 'type');
+        $response = compact('path', 'stream', 'type');
         $this->adapter->updateStream($path, $stream, $config)->willReturn($response);
         $this->cache->updateObject($path, ['contents' => \false] + $response, \true)->shouldBeCalled();
         $this->updateStream($path, $stream, $config)->shouldBe($response);
-        \fclose($stream);
+        fclose($stream);
     }
     public function it_should_ignore_failed_writes()
     {
@@ -81,11 +81,11 @@ class CachedAdapterSpec extends ObjectBehavior
     public function it_should_ignore_failed_streamed_writes()
     {
         $path = 'path.txt';
-        $contents = \tmpfile();
+        $contents = tmpfile();
         $config = new Config();
         $this->adapter->writeStream($path, $contents, $config)->willReturn(\false);
         $this->writeStream($path, $contents, $config)->shouldBe(\false);
-        \fclose($contents);
+        fclose($contents);
     }
     public function it_should_cache_updated()
     {
@@ -93,7 +93,7 @@ class CachedAdapterSpec extends ObjectBehavior
         $path = 'path.txt';
         $contents = 'contents';
         $config = new Config();
-        $response = \compact('path', 'contents', 'type');
+        $response = compact('path', 'contents', 'type');
         $this->adapter->update($path, $contents, $config)->willReturn($response);
         $this->cache->updateObject($path, $response, \true)->shouldBeCalled();
         $this->update($path, $contents, $config)->shouldBe($response);
@@ -109,11 +109,11 @@ class CachedAdapterSpec extends ObjectBehavior
     public function it_should_ignore_failed_streamed_updates()
     {
         $path = 'path.txt';
-        $contents = \tmpfile();
+        $contents = tmpfile();
         $config = new Config();
         $this->adapter->updateStream($path, $contents, $config)->willReturn(\false);
         $this->updateStream($path, $contents, $config)->shouldBe(\false);
-        \fclose($contents);
+        fclose($contents);
     }
     public function it_should_cache_renames()
     {
@@ -232,7 +232,7 @@ class CachedAdapterSpec extends ObjectBehavior
     {
         $this->cache->has($path = 'path.txt')->willReturn(null);
         $this->adapter->has($path)->willReturn(\true);
-        $this->cache->updateObject($path, \compact('path'), \true)->shouldBeCalled();
+        $this->cache->updateObject($path, compact('path'), \true)->shouldBeCalled();
         $this->has($path)->shouldBe(\true);
     }
     public function it_should_list_cached_contents()

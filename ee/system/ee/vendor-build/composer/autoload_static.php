@@ -4,108 +4,22 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3
+class ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54
 {
     public static $files = array (
-        'eea4ecaeafb8cfb009ad0e052c90355e98' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/functions.php',
         'ee320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        'ee51fcf4e06c07cc00c920b44bcd900e7a' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/apc.php',
-        'ee47f619d9197b36cf5ab70738d7743fe2' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/libevent.php',
-        'eeea6bb8a12ef9b68f6ada99058e530760' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/mssql.php',
-        'ee9a29089eb3ce41a446744c68a00f118c' => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated/stats.php',
-        'ee72243e5536b63e298acb6476f01f1aff' => __DIR__ . '/..' . '/thecodingmachine/safe/lib/special_cases.php',
-        'ee3f648889e687f31c52f949ba8a9d0873' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/apache.php',
-        'eeeeb4581d958421a4244aaa4167c6a575' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/apcu.php',
-        'ee04cb0b3c1dac5b5ddb23c14e3d66dbe9' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/array.php',
-        'ee450b332a74a9a21e043c5e953485a791' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/bzip2.php',
-        'ee6e9b7954ecfd7cbb9ca239319d1acdb6' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/calendar.php',
-        'ee2c6d7e8bd2de9a272a9d4d43b0a4304a' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/classobj.php',
-        'ee0b8231c1ad0865447c988a4c16b4001f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/com.php',
-        'ee7643a71fe1c3256058c8fee234cb86e5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/cubrid.php',
-        'ee68e1365710575942efc1d55000032cee' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/curl.php',
-        'ee02fd26bca803106c5b942a7197c3ad8b' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/datetime.php',
-        'eef4817dcbd956cd221b1c31f6fbd5749c' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/dir.php',
-        'ee51c3f2d10ca61a70dbcea0e38d8e902d' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/eio.php',
-        'ee1d34f34327ca3e81535963016e3be2c3' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/errorfunc.php',
-        'ee4fd0ba2d3717b0424d474bebfdafa2b4' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/exec.php',
-        'ee98f4dae054bc7fb19c13be14935cbdd3' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/fileinfo.php',
-        'ee5530ae063ba88323eaf0a07904efdf85' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/filesystem.php',
-        'ee633f4f134975d70e97bddad83348e91a' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/filter.php',
-        'eefbd163fc68c5faf73d5ed4002ffd836d' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/fpm.php',
-        'ee21b511999d61411fab0692ff8795bbed' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ftp.php',
-        'ee85fbd73fc92365cd90526b0ea03cae3a' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/funchand.php',
-        'ee51df9c146e0b7dcbdf358d8abd24dbdc' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/gmp.php',
-        'ee93bb7fe678d7dcfb1322f8e3475a48b0' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/gnupg.php',
-        'eec171ba99cf316379ff66468392bf4950' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/hash.php',
-        'ee5ab4aad4c28e468209fbfcceb2e5e6a5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ibase.php',
-        'ee4d57409c5e8e576b0c64c08d9d731cfb' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ibmDb2.php',
-        'eeeeb246d5403972a9d62106e4a4883496' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/iconv.php',
-        'eec28a05f498c01b810a714f7214b7a8da' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/image.php',
-        'ee8063cd92acdf00fd978b5599eb7cc142' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/imap.php',
-        'ee8bd26dbe768e9c9599edad7b198e5446' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/info.php',
-        'ee0c577fe603b029d4b65c84376b15dbd5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ingres-ii.php',
-        'eed4362910bde43c0f956b52527effd7d4' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/inotify.php',
-        'ee696ba49197d9b55f0428a12bb5a818e1' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/json.php',
-        'ee9818aaa99c8647c63f8ef62b7a368160' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ldap.php',
-        'eebcf523ff2a195eb08e0fbb668ed784d0' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/libxml.php',
-        'ee68be68a9a8b95bb56cab6109ff03bc88' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/lzf.php',
-        'eebdca804bb0904ea9f53f328dfc0bb8a5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mailparse.php',
-        'eeb0a3fcac3eaf55445796d6af26b89366' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mbstring.php',
-        'ee98de16b8db03eb0cb4d318b4402215a6' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/misc.php',
-        'eec112440003b56e243b192c11fa9d836e' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/msql.php',
-        'ee7cefd81607cd21b8b3a15656eb6465f5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mysql.php',
-        'eeaaf438b080089c6d0686679cd34aa72e' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mysqli.php',
-        'eedf0ef890e9afbf95f3924feb1c7a89f3' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mysqlndMs.php',
-        'eedb595fee5972867e45c5327010d78735' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/mysqlndQc.php',
-        'eecbac956836b72483dcff1ac39d5c0a0f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/network.php',
-        'ee6c8f89dfbdc117d7871f572269363f25' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/oci8.php',
-        'ee169a669966a45c06bf55ed029122729b' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/opcache.php',
-        'eedef61bf4fecd4d4bca7354919cd69302' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/openssl.php',
-        'ee26bb010649a6d32d4120181458aa6ef2' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/outcontrol.php',
-        'ee1212c201fe43c7492a085b2c71505e0f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/password.php',
-        'ee002ebcb842e2c0d5b7f67fe64cc93158' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/pcntl.php',
-        'ee86df38612982dade72c7085ce7eca81f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/pcre.php',
-        'ee1cacc3e65f82a473fbd5507c7ce4385d' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/pdf.php',
-        'ee1fc22f445c69ea8706e82fce301c0831' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/pgsql.php',
-        'eec70b42561584f7144bff38cd63c4eef3' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/posix.php',
-        'ee9923214639c32ca5173db03a177d3b63' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ps.php',
-        'ee7e9c3f8eae2b5bf42205c4f1295cb7a7' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/pspell.php',
-        'ee91aa91f6245c349c2e2e88bd0025f199' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/readline.php',
-        'eed43773cacb9e5e8e897aa255e32007d1' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/rpminfo.php',
-        'eef053a3849e9e8383762b34b91db0320b' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/rrd.php',
-        'ee775b964f72f827a1bf87c65ab5b10800' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/sem.php',
-        'ee816428bd69c29ab5e1ed622af5dca0cd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/session.php',
-        'ee5093e233bedbefaef0df262bfbab0a5c' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/shmop.php',
-        'ee01352920b0151f17e671266e44b52536' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/simplexml.php',
-        'eeb080617b1d949683c2e37f8f01dc0e15' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/sockets.php',
-        'ee2708aa182ddcfe6ce27c96acaaa40f69' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/sodium.php',
-        'eef1b96cb260a5baeea9a7285cda82a1ec' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/solr.php',
-        'ee3fd8853757d0fe3557c179efb807afeb' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/spl.php',
-        'ee9312ce96a51c846913fcda5f186d58dd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/sqlsrv.php',
-        'eed3eb383ad0b8b962b29dc4afd29d6715' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ssdeep.php',
-        'ee42a09bc448f441a0b9f9367ea975c0bf' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/ssh2.php',
-        'eeef711077d356d1b33ca0b10b67b0be8f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/stream.php',
-        'ee764b09f6df081cbb2807b97c6ace3866' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/strings.php',
-        'eeef241678769fee4a44aaa288f3b78aa1' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/swoole.php',
-        'ee0efc8f6778cba932b9e2a89e28de2452' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/uodbc.php',
-        'eed383d32907b98af53ee9208c62204fd0' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/uopz.php',
-        'ee2fd2e4060f7fe772660f002ce38f0b71' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/url.php',
-        'ee782249e03deebeaf57b9991ff5493aa0' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/var.php',
-        'ee344440cd1cd7200fdb4f12af0d3c587f' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/xdiff.php',
-        'ee3599f369219c658a5fb6c4fe66832f62' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/xml.php',
-        'ee7fcd313da9fae337051b091b3492c21b' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/xmlrpc.php',
-        'eed668c74cfa92d893b582356733d9a80e' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/yaml.php',
-        'ee4af1dca6db8c527c6eed27bff85ff0e5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/yaz.php',
-        'eefe43ca06499ac37bc2dedd823af71eb5' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zip.php',
-        'ee356736db98a6834f0a886b8d509b0ecd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zlib.php',
+        'ee0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'eea4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'E' => 
         array (
+            'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' => 51,
+            'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' => 54,
             'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Ctype\\' => 51,
-            'ExpressionEngine\\Dependency\\Safe\\' => 33,
             'ExpressionEngine\\Dependency\\Sabberworm\\CSS\\' => 43,
+            'ExpressionEngine\\Dependency\\Psr\\Clock\\' => 38,
             'ExpressionEngine\\Dependency\\Psr\\Cache\\' => 38,
             'ExpressionEngine\\Dependency\\PhpOption\\' => 38,
             'ExpressionEngine\\Dependency\\ParagonIE\\ConstantTime\\' => 51,
@@ -114,27 +28,33 @@ class ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3
             'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' => 52,
             'ExpressionEngine\\Dependency\\League\\Flysystem\\' => 45,
             'ExpressionEngine\\Dependency\\IPLib\\' => 34,
+            'ExpressionEngine\\Dependency\\GrahamCampbell\\ResultType\\' => 54,
             'ExpressionEngine\\Dependency\\Dotenv\\' => 35,
             'ExpressionEngine\\Dependency\\DASPRiD\\Enum\\' => 41,
             'ExpressionEngine\\Dependency\\BaconQrCode\\' => 40,
-            'ExpressionEngine\\Dependency\\Assert\\' => 35,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'ExpressionEngine\\Dependency\\Safe\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/thecodingmachine/safe/lib',
-            1 => __DIR__ . '/..' . '/thecodingmachine/safe/deprecated',
-            2 => __DIR__ . '/..' . '/thecodingmachine/safe/generated',
-        ),
         'ExpressionEngine\\Dependency\\Sabberworm\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
+        ),
+        'ExpressionEngine\\Dependency\\Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
         'ExpressionEngine\\Dependency\\Psr\\Cache\\' => 
         array (
@@ -150,11 +70,11 @@ class ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3
         ),
         'ExpressionEngine\\Dependency\\OTPHP\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spomky-labs/otphp/src',
+            0 => __DIR__ . '/..' . '/expressionengine/otphp/src',
         ),
         'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+            0 => __DIR__ . '/..' . '/expressionengine/mime-type-detection/src',
         ),
         'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' => 
         array (
@@ -162,11 +82,15 @@ class ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3
         ),
         'ExpressionEngine\\Dependency\\League\\Flysystem\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/flysystem/src',
+            0 => __DIR__ . '/..' . '/expressionengine/flysystem/src',
         ),
         'ExpressionEngine\\Dependency\\IPLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/mlocati/ip-lib/src',
+        ),
+        'ExpressionEngine\\Dependency\\GrahamCampbell\\ResultType\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
         'ExpressionEngine\\Dependency\\Dotenv\\' => 
         array (
@@ -178,24 +102,25 @@ class ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3
         ),
         'ExpressionEngine\\Dependency\\BaconQrCode\\' => 
         array (
-            0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
-        ),
-        'ExpressionEngine\\Dependency\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/beberlei/assert/lib/Assert',
+            0 => __DIR__ . '/..' . '/expressionengine/bacon-qr-code/src',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ExpressionEngine\\Dependency\\Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'ExpressionEngine\\Dependency\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+        'ExpressionEngine\\Dependency\\Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'ExpressionEngine\\Dependency\\UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ExpressionEngine\\Dependency\\ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitff0be4317faa0d5478ad0f25042e83e3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54::$classMap;
 
         }, null, ClassLoader::class);
     }

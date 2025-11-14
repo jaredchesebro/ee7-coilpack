@@ -13,10 +13,14 @@ abstract class ValueList extends Value
 {
     /**
      * @var array<int, RuleValueList|CSSFunction|CSSString|LineName|Size|URL|string>
+     *
+     * @internal since 8.8.0
      */
     protected $aComponents;
     /**
      * @var string
+     *
+     * @internal since 8.8.0
      */
     protected $sSeparator;
     /**
@@ -28,7 +32,7 @@ abstract class ValueList extends Value
     public function __construct($aComponents = [], $sSeparator = ',', $iLineNo = 0)
     {
         parent::__construct($iLineNo);
-        if (!\is_array($aComponents)) {
+        if (!is_array($aComponents)) {
             $aComponents = [$aComponents];
         }
         $this->aComponents = $aComponents;
@@ -77,6 +81,8 @@ abstract class ValueList extends Value
     }
     /**
      * @return string
+     *
+     * @deprecated in V8.8.0, will be removed in V9.0.0. Use `render` instead.
      */
     public function __toString()
     {

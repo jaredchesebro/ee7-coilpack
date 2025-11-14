@@ -101,45 +101,45 @@ class Subnet extends AbstractRange
      */
     public static function parseString($range, $flags = 0)
     {
-        if (!\is_string($range)) {
+        if (!is_string($range)) {
             return null;
         }
-        $parts = \explode('/', $range);
-        if (\count($parts) !== 2) {
+        $parts = explode('/', $range);
+        if (count($parts) !== 2) {
             return null;
         }
         $flags = (int) $flags;
-        if (\strpos($parts[0], ':') === \false && $flags & ParseStringFlag::IPV4SUBNET_MAYBE_COMPACT) {
-            $missingDots = 3 - \substr_count($parts[0], '.');
+        if (strpos($parts[0], ':') === \false && $flags & ParseStringFlag::IPV4SUBNET_MAYBE_COMPACT) {
+            $missingDots = 3 - substr_count($parts[0], '.');
             if ($missingDots > 0) {
-                $parts[0] .= \str_repeat('.0', $missingDots);
+                $parts[0] .= str_repeat('.0', $missingDots);
             }
         }
         $address = Factory::parseAddressString($parts[0], $flags);
         if ($address === null) {
             return null;
         }
-        if (!\preg_match('/^[0-9]{1,9}$/', $parts[1])) {
+        if (!preg_match('/^[0-9]{1,9}$/', $parts[1])) {
             return null;
         }
         $networkPrefix = (int) $parts[1];
         $addressBytes = $address->getBytes();
-        $totalBytes = \count($addressBytes);
+        $totalBytes = count($addressBytes);
         $numDifferentBits = $totalBytes * 8 - $networkPrefix;
         if ($numDifferentBits < 0) {
             return null;
         }
         $numSameBytes = $networkPrefix >> 3;
-        $sameBytes = \array_slice($addressBytes, 0, $numSameBytes);
-        $differentBytesStart = $totalBytes === $numSameBytes ? array() : \array_fill(0, $totalBytes - $numSameBytes, 0);
-        $differentBytesEnd = $totalBytes === $numSameBytes ? array() : \array_fill(0, $totalBytes - $numSameBytes, 255);
+        $sameBytes = array_slice($addressBytes, 0, $numSameBytes);
+        $differentBytesStart = $totalBytes === $numSameBytes ? array() : array_fill(0, $totalBytes - $numSameBytes, 0);
+        $differentBytesEnd = $totalBytes === $numSameBytes ? array() : array_fill(0, $totalBytes - $numSameBytes, 255);
         $startSameBits = $networkPrefix % 8;
         if ($startSameBits !== 0) {
             $varyingByte = $addressBytes[$numSameBytes];
-            $differentBytesStart[0] = $varyingByte & \bindec(\str_pad(\str_repeat('1', $startSameBits), 8, '0', \STR_PAD_RIGHT));
-            $differentBytesEnd[0] = $differentBytesStart[0] + \bindec(\str_repeat('1', 8 - $startSameBits));
+            $differentBytesStart[0] = $varyingByte & bindec(str_pad(str_repeat('1', $startSameBits), 8, '0', \STR_PAD_RIGHT));
+            $differentBytesEnd[0] = $differentBytesStart[0] + bindec(str_repeat('1', 8 - $startSameBits));
         }
-        return new static(Factory::addressFromBytes(\array_merge($sameBytes, $differentBytesStart)), Factory::addressFromBytes(\array_merge($sameBytes, $differentBytesEnd)), $networkPrefix);
+        return new static(Factory::addressFromBytes(array_merge($sameBytes, $differentBytesStart)), Factory::addressFromBytes(array_merge($sameBytes, $differentBytesEnd)), $networkPrefix);
     }
     /**
      * {@inheritdoc}
@@ -236,10 +236,9 @@ class Subnet extends AbstractRange
         return self::$sixToFour;
     }
     /**
-     * Get subnet prefix.
+     * {@inheritdoc}
      *
-     * @return int
-     *
+     * @see \IPLib\Range\RangeInterface::getNetworkPrefix()
      * @since 1.7.0
      */
     public function getNetworkPrefix()
@@ -263,9 +262,9 @@ class Subnet extends AbstractRange
             $prefix -= 8;
         }
         if ($prefix !== 0) {
-            $bytes[] = \bindec(\str_pad(\str_repeat('1', $prefix), 8, '0'));
+            $bytes[] = bindec(str_pad(str_repeat('1', $prefix), 8, '0'));
         }
-        $bytes = \array_pad($bytes, 4, 0);
+        $bytes = array_pad($bytes, 4, 0);
         return IPv4::fromBytes($bytes);
     }
     /**
@@ -281,7 +280,7 @@ class Subnet extends AbstractRange
                 // bytes
                 $maxUnits = 4;
                 $isHex = \false;
-                $rxUnit = '\\d+';
+                $rxUnit = '\d+';
                 break;
             case AddressType::T_IPv6:
                 $unitSize = 4;
@@ -300,13 +299,13 @@ class Subnet extends AbstractRange
         $numVariants = 1 << $extraBits;
         $result = array();
         $unitsToRemove = $maxUnits - $prefixUnits;
-        $initialPointer = \preg_replace("/^(({$rxUnit})\\.){{$unitsToRemove}}/", '', $this->getStartAddress()->getReverseDNSLookupName());
-        $chunks = \explode('.', $initialPointer, 2);
+        $initialPointer = preg_replace("/^(({$rxUnit})\\.){{$unitsToRemove}}/", '', $this->getStartAddress()->getReverseDNSLookupName());
+        $chunks = explode('.', $initialPointer, 2);
         for ($index = 0; $index < $numVariants; $index++) {
             if ($index !== 0) {
-                $chunks[0] = $isHex ? \dechex(1 + \hexdec($chunks[0])) : (string) (1 + (int) $chunks[0]);
+                $chunks[0] = $isHex ? dechex(1 + hexdec($chunks[0])) : (string) (1 + (int) $chunks[0]);
             }
-            $result[] = \implode('.', $chunks);
+            $result[] = implode('.', $chunks);
         }
         return $result;
     }
@@ -320,6 +319,6 @@ class Subnet extends AbstractRange
         $fromAddress = $this->fromAddress;
         $maxPrefix = $fromAddress::getNumberOfBits();
         $prefix = $this->getNetworkPrefix();
-        return \pow(2, $maxPrefix - $prefix);
+        return pow(2, $maxPrefix - $prefix);
     }
 }

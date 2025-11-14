@@ -20,10 +20,14 @@ class Import implements AtRule
     private $sMediaQuery;
     /**
      * @var int
+     *
+     * @internal since 8.8.0
      */
     protected $iLineNo;
     /**
      * @var array<array-key, Comment>
+     *
+     * @internal since 8.8.0
      */
     protected $aComments;
     /**
@@ -63,6 +67,8 @@ class Import implements AtRule
     }
     /**
      * @return string
+     *
+     * @deprecated in V8.8.0, will be removed in V9.0.0. Use `render` instead.
      */
     public function __toString()
     {
@@ -91,7 +97,7 @@ class Import implements AtRule
     {
         $aResult = [$this->oLocation];
         if ($this->sMediaQuery) {
-            \array_push($aResult, $this->sMediaQuery);
+            array_push($aResult, $this->sMediaQuery);
         }
         return $aResult;
     }
@@ -102,7 +108,7 @@ class Import implements AtRule
      */
     public function addComments(array $aComments)
     {
-        $this->aComments = \array_merge($this->aComments, $aComments);
+        $this->aComments = array_merge($this->aComments, $aComments);
     }
     /**
      * @return array<array-key, Comment>

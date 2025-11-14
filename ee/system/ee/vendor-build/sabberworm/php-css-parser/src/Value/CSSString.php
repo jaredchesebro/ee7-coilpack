@@ -33,6 +33,8 @@ class CSSString extends PrimitiveValue
      * @throws SourceException
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
+     *
+     * @internal since V8.8.0
      */
     public static function parse(ParserState $oParserState)
     {
@@ -50,7 +52,7 @@ class CSSString extends PrimitiveValue
         $sContent = null;
         if ($sQuote === null) {
             // Unquoted strings end in whitespace or with braces, brackets, parentheses
-            while (!\preg_match('/[\\s{}()<>\\[\\]]/isu', $oParserState->peek())) {
+            while (!preg_match('/[\s{}()<>\[\]]/isu', $oParserState->peek())) {
                 $sResult .= $oParserState->parseCharacter(\false);
             }
         } else {
@@ -83,6 +85,8 @@ class CSSString extends PrimitiveValue
     }
     /**
      * @return string
+     *
+     * @deprecated in V8.8.0, will be removed in V9.0.0. Use `render` instead.
      */
     public function __toString()
     {
@@ -95,8 +99,8 @@ class CSSString extends PrimitiveValue
      */
     public function render($oOutputFormat)
     {
-        $sString = \addslashes($this->sString);
-        $sString = \str_replace("\n", '\\A', $sString);
+        $sString = addslashes($this->sString);
+        $sString = str_replace("\n", '\A', $sString);
         return $oOutputFormat->getStringQuotingType() . $sString . $oOutputFormat->getStringQuotingType();
     }
 }

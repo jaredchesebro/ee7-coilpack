@@ -40,7 +40,7 @@ abstract class Base32Hex extends Base32
      * @param int $src
      * @return int
      */
-    protected static function decode5Bits(int $src) : int
+    protected static function decode5Bits(int $src): int
     {
         $ret = -1;
         // if ($src > 0x30 && $src < 0x3a) ret += $src - 0x2e + 1; // -47
@@ -56,7 +56,7 @@ abstract class Base32Hex extends Base32
      * @param int $src
      * @return int
      */
-    protected static function decode5BitsUpper(int $src) : int
+    protected static function decode5BitsUpper(int $src): int
     {
         $ret = -1;
         // if ($src > 0x30 && $src < 0x3a) ret += $src - 0x2e + 1; // -47
@@ -72,7 +72,7 @@ abstract class Base32Hex extends Base32
      * @param int $src
      * @return string
      */
-    protected static function encode5Bits(int $src) : string
+    protected static function encode5Bits(int $src): string
     {
         $src += 0x30;
         // if ($src > 0x39) $src += 0x61 - 0x3a; // 39
@@ -88,7 +88,7 @@ abstract class Base32Hex extends Base32
      * @param int $src
      * @return string
      */
-    protected static function encode5BitsUpper(int $src) : string
+    protected static function encode5BitsUpper(int $src): string
     {
         $src += 0x30;
         // if ($src > 0x39) $src += 0x41 - 0x3a; // 7

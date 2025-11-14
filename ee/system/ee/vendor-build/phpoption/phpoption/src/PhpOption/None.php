@@ -28,7 +28,7 @@ final class None extends Option
     /**
      * @return None
      */
-    public static function create() : self
+    public static function create(): self
     {
         if (null === self::$instance) {
             self::$instance = new self();
@@ -51,11 +51,11 @@ final class None extends Option
     {
         throw $ex;
     }
-    public function isEmpty() : bool
+    public function isEmpty(): bool
     {
         return \true;
     }
-    public function isDefined() : bool
+    public function isDefined(): bool
     {
         return \false;
     }
@@ -95,7 +95,7 @@ final class None extends Option
     {
         return $this;
     }
-    public function getIterator() : EmptyIterator
+    public function getIterator(): EmptyIterator
     {
         return new EmptyIterator();
     }

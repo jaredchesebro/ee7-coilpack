@@ -15,16 +15,16 @@ final class NullValue
     private function __construct()
     {
     }
-    public static function instance() : self
+    public static function instance(): self
     {
-        return self::$instance ?: (self::$instance = new self());
+        return self::$instance ?: self::$instance = new self();
     }
     /**
      * Forbid cloning enums.
      *
      * @throws CloneNotSupportedException
      */
-    public final function __clone()
+    final public function __clone()
     {
         throw new CloneNotSupportedException();
     }
@@ -33,7 +33,7 @@ final class NullValue
      *
      * @throws SerializeNotSupportedException
      */
-    public final function __sleep() : array
+    final public function __sleep(): array
     {
         throw new SerializeNotSupportedException();
     }
@@ -42,7 +42,7 @@ final class NullValue
      *
      * @throws UnserializeNotSupportedException
      */
-    public final function __wakeup() : void
+    final public function __wakeup(): void
     {
         throw new UnserializeNotSupportedException();
     }

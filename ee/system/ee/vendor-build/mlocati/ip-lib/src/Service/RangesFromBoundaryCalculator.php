@@ -79,8 +79,8 @@ class RangesFromBoundaryCalculator
         $masks = array();
         $unmasks = array();
         for ($bit = 0; $bit < $numBits; $bit++) {
-            $masks[$bit] = \str_repeat('1', $numBits - $bit) . \str_repeat('0', $bit);
-            $unmasks[$bit] = $bit === 0 ? '0' : \str_repeat('1', $bit);
+            $masks[$bit] = str_repeat('1', $numBits - $bit) . str_repeat('0', $bit);
+            $unmasks[$bit] = $bit === 0 ? '0' : str_repeat('1', $bit);
         }
         $this->numBits = $numBits;
         $this->masks = $masks;
@@ -125,10 +125,10 @@ class RangesFromBoundaryCalculator
      */
     private function addressFromBits($bits)
     {
-        $bits = \str_pad($bits, $this->numBits, '0', \STR_PAD_LEFT);
+        $bits = str_pad($bits, $this->numBits, '0', \STR_PAD_LEFT);
         $bytes = array();
-        foreach (\explode("\n", \trim(\chunk_split($bits, 8, "\n"))) as $byteBits) {
-            $bytes[] = \bindec($byteBits);
+        foreach (explode("\n", trim(chunk_split($bits, 8, "\n"))) as $byteBits) {
+            $bytes[] = bindec($byteBits);
         }
         return Factory::addressFromBytes($bytes);
     }
@@ -147,7 +147,7 @@ class RangesFromBoundaryCalculator
         if ($numOnes === 0) {
             return new Subnet($startAddress, $startAddress, $networkPrefix);
         }
-        $endAddress = $this->addressFromBits(\substr($bits, 0, -$numOnes) . \str_repeat('1', $numOnes));
+        $endAddress = $this->addressFromBits(substr($bits, 0, -$numOnes) . str_repeat('1', $numOnes));
         return new Subnet($startAddress, $endAddress, $networkPrefix);
     }
 }

@@ -1,9 +1,24 @@
 <?php
 
+declare (strict_types=1);
 namespace ExpressionEngine\Dependency\Dotenv\Store\File;
 
-class Paths
+/**
+ * @internal
+ */
+final class Paths
 {
+    /**
+     * This class is a singleton.
+     *
+     * @codeCoverageIgnore
+     *
+     * @return void
+     */
+    private function __construct()
+    {
+        //
+    }
     /**
      * Returns the full paths to the files.
      *

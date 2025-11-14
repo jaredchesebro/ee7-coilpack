@@ -55,7 +55,7 @@ abstract class AbstractCache implements CacheInterface
                 $directories[] = $object['dirname'];
             }
         }
-        foreach (\array_unique($directories) as $directory) {
+        foreach (array_unique($directories) as $directory) {
             $this->setComplete($directory, $recursive);
         }
         $this->autosave();
@@ -72,7 +72,7 @@ abstract class AbstractCache implements CacheInterface
         if (!$this->has($path)) {
             $this->cache[$path] = Util::pathinfo($path);
         }
-        $this->cache[$path] = \array_merge($this->cache[$path], $object);
+        $this->cache[$path] = array_merge($this->cache[$path], $object);
         if ($autosave) {
             $this->autosave();
         }
@@ -116,7 +116,7 @@ abstract class AbstractCache implements CacheInterface
      */
     public function has($path)
     {
-        if ($path !== \false && \array_key_exists($path, $this->cache)) {
+        if ($path !== \false && array_key_exists($path, $this->cache)) {
             return $this->cache[$path] !== \false;
         }
         if ($this->isComplete(Util::dirname($path), \false)) {
@@ -149,7 +149,7 @@ abstract class AbstractCache implements CacheInterface
             $object = $this->cache[$path];
             unset($this->cache[$path]);
             $object['path'] = $newpath;
-            $object = \array_merge($object, Util::pathinfo($newpath));
+            $object = array_merge($object, Util::pathinfo($newpath));
             $this->cache[$newpath] = $object;
             $this->autosave();
         }
@@ -161,7 +161,7 @@ abstract class AbstractCache implements CacheInterface
     {
         if ($this->has($path)) {
             $object = $this->cache[$path];
-            $object = \array_merge($object, Util::pathinfo($newpath));
+            $object = array_merge($object, Util::pathinfo($newpath));
             $this->updateObject($newpath, $object, \true);
         }
     }
@@ -193,7 +193,7 @@ abstract class AbstractCache implements CacheInterface
         if (isset($this->cache[$path]['mimetype'])) {
             return $this->cache[$path];
         }
-        if (!($result = $this->read($path))) {
+        if (!$result = $this->read($path)) {
             return \false;
         }
         $mimetype = Util::guessMimeType($path, $result['contents']);
@@ -245,7 +245,7 @@ abstract class AbstractCache implements CacheInterface
      */
     public function isComplete($dirname, $recursive)
     {
-        if (!\array_key_exists($dirname, $this->complete)) {
+        if (!array_key_exists($dirname, $this->complete)) {
             return \false;
         }
         if ($recursive && $this->complete[$dirname] !== 'recursive') {
@@ -269,10 +269,10 @@ abstract class AbstractCache implements CacheInterface
      */
     public function cleanContents(array $contents)
     {
-        $cachedProperties = \array_flip(['path', 'dirname', 'basename', 'extension', 'filename', 'size', 'mimetype', 'visibility', 'timestamp', 'type', 'md5']);
+        $cachedProperties = array_flip(['path', 'dirname', 'basename', 'extension', 'filename', 'size', 'mimetype', 'visibility', 'timestamp', 'type', 'md5']);
         foreach ($contents as $path => $object) {
-            if (\is_array($object)) {
-                $contents[$path] = \array_intersect_key($object, $cachedProperties);
+            if (is_array($object)) {
+                $contents[$path] = array_intersect_key($object, $cachedProperties);
             }
         }
         return $contents;
@@ -303,7 +303,7 @@ abstract class AbstractCache implements CacheInterface
     public function getForStorage()
     {
         $cleaned = $this->cleanContents($this->cache);
-        return \json_encode([$cleaned, $this->complete]);
+        return json_encode([$cleaned, $this->complete]);
     }
     /**
      * Load from serialized cache data.
@@ -312,8 +312,8 @@ abstract class AbstractCache implements CacheInterface
      */
     public function setFromStorage($json)
     {
-        list($cache, $complete) = \json_decode($json, \true);
-        if (\json_last_error() === \JSON_ERROR_NONE && \is_array($cache) && \is_array($complete)) {
+        list($cache, $complete) = json_decode($json, \true);
+        if (json_last_error() === \JSON_ERROR_NONE && is_array($cache) && is_array($complete)) {
             $this->cache = $cache;
             $this->complete = $complete;
         }
@@ -342,6 +342,6 @@ abstract class AbstractCache implements CacheInterface
      */
     protected function pathIsInDirectory($directory, $path)
     {
-        return $directory === '' || \strpos($path, $directory . '/') === 0;
+        return $directory === '' || strpos($path, $directory . '/') === 0;
     }
 }

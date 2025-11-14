@@ -52,7 +52,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->write($path, $contents, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
-            $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
         return $result;
     }
@@ -65,7 +65,7 @@ class CachedAdapter implements AdapterInterface
         if ($result !== \false) {
             $result['type'] = 'file';
             $contents = \false;
-            $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
         return $result;
     }
@@ -77,7 +77,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->update($path, $contents, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
-            $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
         return $result;
     }
@@ -90,7 +90,7 @@ class CachedAdapter implements AdapterInterface
         if ($result !== \false) {
             $result['type'] = 'file';
             $contents = \false;
-            $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
         return $result;
     }
@@ -147,7 +147,7 @@ class CachedAdapter implements AdapterInterface
         if ($result !== \false) {
             $type = 'dir';
             $path = $dirname;
-            $this->cache->updateObject($dirname, \compact('path', 'type'), \true);
+            $this->cache->updateObject($dirname, compact('path', 'type'), \true);
         }
         return $result;
     }
@@ -158,7 +158,7 @@ class CachedAdapter implements AdapterInterface
     {
         $result = $this->adapter->setVisibility($path, $visibility);
         if ($result !== \false) {
-            $this->cache->updateObject($path, \compact('path', 'visibility'), \true);
+            $this->cache->updateObject($path, compact('path', 'visibility'), \true);
         }
         return $result;
     }
@@ -175,7 +175,7 @@ class CachedAdapter implements AdapterInterface
         if (!$adapterResponse) {
             $this->cache->storeMiss($path);
         } else {
-            $cacheEntry = \is_array($adapterResponse) ? $adapterResponse : \compact('path');
+            $cacheEntry = is_array($adapterResponse) ? $adapterResponse : compact('path');
             $this->cache->updateObject($path, $cacheEntry, \true);
         }
         return $adapterResponse;
@@ -275,12 +275,12 @@ class CachedAdapter implements AdapterInterface
     protected function callWithFallback($property, $path, $method)
     {
         $result = $this->cache->{$method}($path);
-        if ($result !== \false && ($property === null || \array_key_exists($property, $result))) {
+        if ($result !== \false && ($property === null || array_key_exists($property, $result))) {
             return $result;
         }
         $result = $this->adapter->{$method}($path);
         if ($result) {
-            $object = $result + \compact('path');
+            $object = $result + compact('path');
             $this->cache->updateObject($path, $object, \true);
         }
         return $result;

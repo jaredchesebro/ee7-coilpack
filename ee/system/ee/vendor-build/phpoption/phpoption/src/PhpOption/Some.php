@@ -41,15 +41,15 @@ final class Some extends Option
      *
      * @return Some<U>
      */
-    public static function create($value) : self
+    public static function create($value): self
     {
         return new self($value);
     }
-    public function isDefined() : bool
+    public function isDefined(): bool
     {
         return \true;
     }
-    public function isEmpty() : bool
+    public function isEmpty(): bool
     {
         return \false;
     }
@@ -126,7 +126,7 @@ final class Some extends Option
     /**
      * @return ArrayIterator<int, T>
      */
-    public function getIterator() : ArrayIterator
+    public function getIterator(): ArrayIterator
     {
         return new ArrayIterator([$this->value]);
     }

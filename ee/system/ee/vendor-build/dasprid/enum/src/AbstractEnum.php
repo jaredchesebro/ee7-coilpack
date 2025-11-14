@@ -46,7 +46,7 @@ abstract class AbstractEnum
      *
      * @return static
      */
-    public static final function __callStatic(string $name, array $arguments) : self
+    final public static function __callStatic(string $name, array $arguments): self
     {
         return static::valueOf($name);
     }
@@ -59,21 +59,21 @@ abstract class AbstractEnum
      * @return static
      * @throws IllegalArgumentException if the enum has no constant with the specified name
      */
-    public static final function valueOf(string $name) : self
+    final public static function valueOf(string $name): self
     {
         if (isset(self::$values[static::class][$name])) {
             return self::$values[static::class][$name];
         }
         $constants = self::constants();
-        if (\array_key_exists($name, $constants)) {
+        if (array_key_exists($name, $constants)) {
             return self::createValue($name, $constants[$name][0], $constants[$name][1]);
         }
-        throw new IllegalArgumentException(\sprintf('No enum constant %s::%s', static::class, $name));
+        throw new IllegalArgumentException(sprintf('No enum constant %s::%s', static::class, $name));
     }
     /**
      * @return static
      */
-    private static function createValue(string $name, int $ordinal, array $arguments) : self
+    private static function createValue(string $name, int $ordinal, array $arguments): self
     {
         $instance = new static(...$arguments);
         $instance->name = $name;
@@ -86,7 +86,7 @@ abstract class AbstractEnum
      *
      * @return static[]
      */
-    public static final function values() : array
+    final public static function values(): array
     {
         if (isset(self::$allValuesLoaded[static::class])) {
             return self::$values[static::class];
@@ -95,18 +95,18 @@ abstract class AbstractEnum
             self::$values[static::class] = [];
         }
         foreach (self::constants() as $name => $constant) {
-            if (\array_key_exists($name, self::$values[static::class])) {
+            if (array_key_exists($name, self::$values[static::class])) {
                 continue;
             }
             static::createValue($name, $constant[0], $constant[1]);
         }
-        \uasort(self::$values[static::class], function (self $a, self $b) {
+        uasort(self::$values[static::class], function (self $a, self $b) {
             return $a->ordinal() <=> $b->ordinal();
         });
         self::$allValuesLoaded[static::class] = \true;
         return self::$values[static::class];
     }
-    private static function constants() : array
+    private static function constants(): array
     {
         if (isset(self::$constants[static::class])) {
             return self::$constants[static::class];
@@ -119,7 +119,7 @@ abstract class AbstractEnum
                 continue;
             }
             $value = $reflectionConstant->getValue();
-            self::$constants[static::class][$reflectionConstant->name] = [++$ordinal, \is_array($value) ? $value : []];
+            self::$constants[static::class][$reflectionConstant->name] = [++$ordinal, is_array($value) ? $value : []];
         }
         return self::$constants[static::class];
     }
@@ -130,7 +130,7 @@ abstract class AbstractEnum
      * method may return a more user-friendly name. This method is designed primarily for use in specialized situations
      * where correctness depends on getting the exact name, which will not vary from release to release.
      */
-    public final function name() : string
+    final public function name(): string
     {
         return $this->name;
     }
@@ -141,7 +141,7 @@ abstract class AbstractEnum
      * Most programmers will have no use for this method. It is designed for use by sophisticated enum-based data
      * structures.
      */
-    public final function ordinal() : int
+    final public function ordinal(): int
     {
         return $this->ordinal;
     }
@@ -156,10 +156,10 @@ abstract class AbstractEnum
      *
      * @throws MismatchException if the passed enum is not of the same type
      */
-    public final function compareTo(self $other) : int
+    final public function compareTo(self $other): int
     {
         if (!$other instanceof static) {
-            throw new MismatchException(\sprintf('The passed enum %s is not of the same type as %s', \get_class($other), static::class));
+            throw new MismatchException(sprintf('The passed enum %s is not of the same type as %s', get_class($other), static::class));
         }
         return $this->ordinal - $other->ordinal;
     }
@@ -168,7 +168,7 @@ abstract class AbstractEnum
      *
      * @throws CloneNotSupportedException
      */
-    public final function __clone()
+    final public function __clone()
     {
         throw new CloneNotSupportedException();
     }
@@ -177,7 +177,7 @@ abstract class AbstractEnum
      *
      * @throws SerializeNotSupportedException
      */
-    public final function __sleep() : array
+    final public function __sleep(): array
     {
         throw new SerializeNotSupportedException();
     }
@@ -186,7 +186,7 @@ abstract class AbstractEnum
      *
      * @throws UnserializeNotSupportedException
      */
-    public final function __wakeup() : void
+    final public function __wakeup(): void
     {
         throw new UnserializeNotSupportedException();
     }
@@ -195,7 +195,7 @@ abstract class AbstractEnum
      *
      * You may override this method to give a more user-friendly version.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->name;
     }

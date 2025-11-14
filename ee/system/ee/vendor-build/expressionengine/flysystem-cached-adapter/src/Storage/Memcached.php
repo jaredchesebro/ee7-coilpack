@@ -46,7 +46,7 @@ class Memcached extends AbstractCache
     public function save()
     {
         $contents = $this->getForStorage();
-        $expiration = $this->expire === null ? 0 : \time() + $this->expire;
+        $expiration = $this->expire === null ? 0 : time() + $this->expire;
         $this->memcached->set($this->key, $contents, $expiration);
     }
 }

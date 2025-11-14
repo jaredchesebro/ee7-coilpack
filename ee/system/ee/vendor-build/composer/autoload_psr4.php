@@ -6,19 +6,21 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname(dirname(dirname($vendorDir)));
 
 return array(
+    'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
+    'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
-    'ExpressionEngine\\Dependency\\Safe\\' => array($vendorDir . '/thecodingmachine/safe/lib', $vendorDir . '/thecodingmachine/safe/deprecated', $vendorDir . '/thecodingmachine/safe/generated'),
     'ExpressionEngine\\Dependency\\Sabberworm\\CSS\\' => array($vendorDir . '/sabberworm/php-css-parser/src'),
+    'ExpressionEngine\\Dependency\\Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
     'ExpressionEngine\\Dependency\\Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'ExpressionEngine\\Dependency\\PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'ExpressionEngine\\Dependency\\ParagonIE\\ConstantTime\\' => array($vendorDir . '/paragonie/constant_time_encoding/src'),
-    'ExpressionEngine\\Dependency\\OTPHP\\' => array($vendorDir . '/spomky-labs/otphp/src'),
-    'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
+    'ExpressionEngine\\Dependency\\OTPHP\\' => array($vendorDir . '/expressionengine/otphp/src'),
+    'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' => array($vendorDir . '/expressionengine/mime-type-detection/src'),
     'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' => array($vendorDir . '/expressionengine/flysystem-cached-adapter/src'),
-    'ExpressionEngine\\Dependency\\League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'ExpressionEngine\\Dependency\\League\\Flysystem\\' => array($vendorDir . '/expressionengine/flysystem/src'),
     'ExpressionEngine\\Dependency\\IPLib\\' => array($vendorDir . '/mlocati/ip-lib/src'),
+    'ExpressionEngine\\Dependency\\GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'ExpressionEngine\\Dependency\\Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'ExpressionEngine\\Dependency\\DASPRiD\\Enum\\' => array($vendorDir . '/dasprid/enum/src'),
-    'ExpressionEngine\\Dependency\\BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
-    'ExpressionEngine\\Dependency\\Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),
+    'ExpressionEngine\\Dependency\\BaconQrCode\\' => array($vendorDir . '/expressionengine/bacon-qr-code/src'),
 );

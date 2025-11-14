@@ -218,7 +218,7 @@ class Factory
             $result = null;
             $addressType = $from->getAddressType();
             if ($addressType === $to->getAddressType()) {
-                $cmp = \strcmp($from->getComparableString(), $to->getComparableString());
+                $cmp = strcmp($from->getComparableString(), $to->getComparableString());
                 if ($cmp === 0) {
                     $result = Range\Single::fromAddress($from);
                 } else {
@@ -227,7 +227,7 @@ class Factory
                     }
                     $fromBytes = $from->getBytes();
                     $toBytes = $to->getBytes();
-                    $numBytes = \count($fromBytes);
+                    $numBytes = count($fromBytes);
                     $sameBits = 0;
                     for ($byteIndex = 0; $byteIndex < $numBytes; $byteIndex++) {
                         $fromByte = $fromBytes[$byteIndex];
@@ -235,8 +235,8 @@ class Factory
                         if ($fromByte === $toByte) {
                             $sameBits += 8;
                         } else {
-                            $differentBitsInByte = \decbin($fromByte ^ $toByte);
-                            $sameBits += 8 - \strlen($differentBitsInByte);
+                            $differentBitsInByte = decbin($fromByte ^ $toByte);
+                            $sameBits += 8 - strlen($differentBitsInByte);
                             break;
                         }
                     }
@@ -271,7 +271,7 @@ class Factory
             }
             $result[] = $value;
         }
-        if ($result[0] && $result[1] && \strcmp($result[0]->getComparableString(), $result[1]->getComparableString()) > 0) {
+        if ($result[0] && $result[1] && strcmp($result[0]->getComparableString(), $result[1]->getComparableString()) > 0) {
             $result = array($result[1], $result[0]);
         }
         return $result;

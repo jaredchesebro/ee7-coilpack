@@ -36,7 +36,7 @@ class Type
             case static::T_IPv6:
                 return 'IP v6';
             default:
-                return \sprintf('Unknown type (%s)', $type);
+                return sprintf('Unknown type (%s)', $type);
         }
     }
 }

@@ -38,7 +38,7 @@ final class LazyOption extends Option
      *
      * @return LazyOption<S>
      */
-    public static function create($callback, array $arguments = []) : self
+    public static function create($callback, array $arguments = []): self
     {
         return new self($callback, $arguments);
     }
@@ -48,17 +48,17 @@ final class LazyOption extends Option
      */
     public function __construct($callback, array $arguments = [])
     {
-        if (!\is_callable($callback)) {
+        if (!is_callable($callback)) {
             throw new \InvalidArgumentException('Invalid callback given');
         }
         $this->callback = $callback;
         $this->arguments = $arguments;
     }
-    public function isDefined() : bool
+    public function isDefined(): bool
     {
         return $this->option()->isDefined();
     }
-    public function isEmpty() : bool
+    public function isEmpty(): bool
     {
         return $this->option()->isEmpty();
     }
@@ -117,7 +117,7 @@ final class LazyOption extends Option
     /**
      * @return Traversable<T>
      */
-    public function getIterator() : Traversable
+    public function getIterator(): Traversable
     {
         return $this->option()->getIterator();
     }
@@ -132,15 +132,15 @@ final class LazyOption extends Option
     /**
      * @return Option<T>
      */
-    private function option() : Option
+    private function option(): Option
     {
         if (null === $this->option) {
             /** @var mixed */
-            $option = \call_user_func_array($this->callback, $this->arguments);
+            $option = call_user_func_array($this->callback, $this->arguments);
             if ($option instanceof Option) {
                 $this->option = $option;
             } else {
-                throw new \RuntimeException(\sprintf('Expected instance of %s', Option::class));
+                throw new \RuntimeException(sprintf('Expected instance of %s', Option::class));
             }
         }
         return $this->option;
