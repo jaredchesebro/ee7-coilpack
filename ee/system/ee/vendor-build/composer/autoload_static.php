@@ -13,7 +13,7 @@ class ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54
     );
 
     public static $prefixLengthsPsr4 = array (
-        'E' => 
+        'E' =>
         array (
             'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' => 51,
             'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' => 54,
@@ -36,71 +36,71 @@ class ComposerStaticInit0ff98b257d79128a5ec6e5a23253aa54
     );
 
     public static $prefixDirsPsr4 = array (
-        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' => 
+        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' => 
+        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Ctype\\' => 
+        'ExpressionEngine\\Dependency\\Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'ExpressionEngine\\Dependency\\Sabberworm\\CSS\\' => 
+        'ExpressionEngine\\Dependency\\Sabberworm\\CSS\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'ExpressionEngine\\Dependency\\Psr\\Clock\\' => 
+        'ExpressionEngine\\Dependency\\Psr\\Clock\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
-        'ExpressionEngine\\Dependency\\Psr\\Cache\\' => 
+        'ExpressionEngine\\Dependency\\Psr\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'ExpressionEngine\\Dependency\\PhpOption\\' => 
+        'ExpressionEngine\\Dependency\\PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'ExpressionEngine\\Dependency\\ParagonIE\\ConstantTime\\' => 
+        'ExpressionEngine\\Dependency\\ParagonIE\\ConstantTime\\' =>
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
-        'ExpressionEngine\\Dependency\\OTPHP\\' => 
+        'ExpressionEngine\\Dependency\\OTPHP\\' =>
         array (
             0 => __DIR__ . '/..' . '/expressionengine/otphp/src',
         ),
-        'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' => 
+        'ExpressionEngine\\Dependency\\League\\MimeTypeDetection\\' =>
         array (
             0 => __DIR__ . '/..' . '/expressionengine/mime-type-detection/src',
         ),
-        'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' => 
+        'ExpressionEngine\\Dependency\\League\\Flysystem\\Cached\\' =>
         array (
             0 => __DIR__ . '/..' . '/expressionengine/flysystem-cached-adapter/src',
         ),
-        'ExpressionEngine\\Dependency\\League\\Flysystem\\' => 
+        'ExpressionEngine\\Dependency\\League\\Flysystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/expressionengine/flysystem/src',
         ),
-        'ExpressionEngine\\Dependency\\IPLib\\' => 
+        'ExpressionEngine\\Dependency\\IPLib\\' =>
         array (
             0 => __DIR__ . '/..' . '/mlocati/ip-lib/src',
         ),
-        'ExpressionEngine\\Dependency\\GrahamCampbell\\ResultType\\' => 
+        'ExpressionEngine\\Dependency\\GrahamCampbell\\ResultType\\' =>
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'ExpressionEngine\\Dependency\\Dotenv\\' => 
+        'ExpressionEngine\\Dependency\\Dotenv\\' =>
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'ExpressionEngine\\Dependency\\DASPRiD\\Enum\\' => 
+        'ExpressionEngine\\Dependency\\DASPRiD\\Enum\\' =>
         array (
             0 => __DIR__ . '/..' . '/dasprid/enum/src',
         ),
-        'ExpressionEngine\\Dependency\\BaconQrCode\\' => 
+        'ExpressionEngine\\Dependency\\BaconQrCode\\' =>
         array (
             0 => __DIR__ . '/..' . '/expressionengine/bacon-qr-code/src',
         ),

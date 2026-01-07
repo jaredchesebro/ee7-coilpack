@@ -160,7 +160,6 @@
         </div>
 
         <?=ee('CP/Alert')->getStandard()?>
-        
 
         <?php if (!isset($ee_cp_viewmode) || empty($ee_cp_viewmode)) : ?>
         <script type="text/javascript">
