@@ -18,12 +18,11 @@ composer_version: "2"
 web_environment: []
 nodejs_version: "22"
 upload_dir: "uploads"
-
-#web_extra_exposed_ports:
-#  - name: node-vite
-#    container_port: 5173
-#    http_port: 5172
-#    https_port: 5173
+web_extra_exposed_ports:
+  - name: vite
+    container_port: 5173
+    http_port: 5172
+    https_port: 5173
 
 # Key features of ddev's config.yaml:
 
@@ -265,6 +264,6 @@ hooks:
   post-start:
     - composer: install --no-interaction --no-progress --optimize-autoloader
     - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
-    - exec: npx mix --production
+    - exec: npm run build
   pre-stop:
     - exec: php artisan eecli backup:database

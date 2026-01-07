@@ -36,8 +36,6 @@ yarn-error.log
 !/ee/images/pm_attachements/index.html
 /ee/system/ee/installer*
 
-/public/mix-manifest.json
-
 CLAUDE.md
 
 /*.sql
