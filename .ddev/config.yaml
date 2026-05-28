@@ -1,7 +1,7 @@
 name: coilpack
 type: laravel
 docroot: public
-php_version: "8.2"
+php_version: "8.3"
 webserver_type: apache-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -16,13 +16,20 @@ mutagen_enabled: false
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
-nodejs_version: "22"
+nodejs_version: "24"
 upload_dir: "uploads"
 web_extra_exposed_ports:
   - name: vite
     container_port: 5173
     http_port: 5172
     https_port: 5173
+hooks:
+  post-start:
+    - composer: install --no-interaction --no-progress --optimize-autoloader
+    - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
+    - exec: npm run build
+  pre-stop:
+    - exec: php artisan eecli backup:database
 
 # Key features of ddev's config.yaml:
 
@@ -260,10 +267,4 @@ web_extra_exposed_ports:
 # See https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/ for more
 # information on the commands that can be extended and the tasks you can define
 # for them. Example:
-hooks:
-  post-start:
-    - composer: install --no-interaction --no-progress --optimize-autoloader
-    - exec: if [[ ! -d 'node_modules/' ]]; then npm install; fi
-    - exec: npm run build
-  pre-stop:
-    - exec: php artisan eecli backup:database
+
