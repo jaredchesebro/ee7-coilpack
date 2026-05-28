@@ -14,7 +14,7 @@ use ExpressionEngine\Model\Channel\ChannelEntry;
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 class Structure_tab
@@ -823,8 +823,9 @@ class Structure_tab
         $uris = $site_pages['uris'];
 
         //exclude current page from check
-        if (isset($uris[$entry->entry_id])) {
-            unset($uris[$entry->entry_id]);
+        $entry_id = $entry->entry_id ?? null;
+        if ($entry_id !== null && isset($uris[$entry_id])) {
+            unset($uris[$entry_id]);
         }
         //ensure leading slash is present
         $value = '/' . trim($values['uri'], '/');

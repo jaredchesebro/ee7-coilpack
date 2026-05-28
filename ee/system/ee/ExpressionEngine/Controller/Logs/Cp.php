@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -40,7 +40,17 @@ class Cp extends Logs
         $sites = ee('Model')->get('Site');
         $logs = ee('Model')->get('CpLog');
 
-        if ($search = ee()->input->get_post('filter_by_keyword')) {
+        $search = null;
+        $keyword_post = ee()->input->post('filter_by_keyword');
+        $is_clearing_keyword = ($keyword_post !== false && trim((string) $keyword_post) === '');
+
+        // CP logs only: when keyword is intentionally cleared via POST,
+        // prevent GET fallback from rehydrating the previous keyword value.
+        if ($is_clearing_keyword) {
+            unset($_GET['filter_by_keyword']);
+        }
+
+        if (! $is_clearing_keyword && ($search = ee()->input->get_post('filter_by_keyword'))) {
             $logs->search(['action', 'username', 'ip_address'], $search);
         }
 

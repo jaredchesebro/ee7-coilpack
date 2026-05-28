@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -48,6 +48,21 @@ class CI_DB_driver
     public $cache_autodel = false;
     public $CACHE; // The cache class object
     public $dbcollat_default; // true if the collation is not in the config or is default
+
+    // PDO MYSQL_ATTR_* options that can be passed in database config
+    public $MYSQL_ATTR_LOCAL_INFILE;
+    public $MYSQL_ATTR_LOCAL_INFILE_DIRECTORY;
+    public $MYSQL_ATTR_READ_DEFAULT_FILE;
+    public $MYSQL_ATTR_READ_DEFAULT_GROUP;
+    public $MYSQL_ATTR_MAX_BUFFER_SIZE;
+    public $MYSQL_ATTR_INIT_COMMAND;
+    public $MYSQL_ATTR_COMPRESS;
+    public $MYSQL_ATTR_SSL_CA;
+    public $MYSQL_ATTR_SSL_CAPATH;
+    public $MYSQL_ATTR_SSL_CERT;
+    public $MYSQL_ATTR_SSL_CIPHER;
+    public $MYSQL_ATTR_SSL_KEY;
+    public $MYSQL_ATTR_SSL_VERIFY_SERVER_CERT;
 
     // Private variables
     public $_protect_identifiers = true;

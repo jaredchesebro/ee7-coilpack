@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -33,6 +33,7 @@ class CI_DB_mysqli_driver extends CI_DB
      */
     public $_count_string = "SELECT COUNT(*) AS ";
     public $_random_keyword = ' RAND()'; // database specific random keyword
+    public $last_query = null;
 
     /**
      * Whether to use the MySQL "delete hack" which allows the number

@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -317,6 +317,24 @@ class Filepicker_mcp
         $subfolder_id = (int) ee('Request')->post('directory_id');
 
         if (empty($dir_id)) {
+            ee()->load->helper('number_helper');
+            ee()->lang->loadfile('upload');
+
+            $contentLength = (int) ee()->input->server('CONTENT_LENGTH');
+            $postMax = get_bytes(ini_get('post_max_size'));
+
+            // If POST body is larger than post_max_size, PHP drops POST/FILES.
+            // In that case, return a useful upload limit error instead of 404.
+            if ($contentLength > 0 && $postMax > 0 && $contentLength > $postMax) {
+                return [
+                    'ajax' => true,
+                    'body' => [
+                        'status' => 'error',
+                        'error' => lang('upload_file_exceeds_limit')
+                    ]
+                ];
+            }
+
             show_404();
         }
 

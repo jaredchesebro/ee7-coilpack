@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -614,7 +614,9 @@ class File_field
         $file = false;
 
         // URL-decode the reference bfore searching or querying
-        $file_reference = rawurldecode($file_reference);
+        if ($file_reference !== null) {
+            $file_reference = rawurldecode($file_reference);
+        }
 
         if ($file_reference != null) {
             // Assign the key (field) and value we'll be searching by

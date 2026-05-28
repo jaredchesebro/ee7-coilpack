@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -238,6 +238,10 @@ class Api_template_structure extends Api
         // Handle array template_type (take first element)
         if (is_array($template_type)) {
             $template_type = reset($template_type);
+        }
+
+        if ($template_type === null || $template_type === false || $template_type === '') {
+            return (!empty($engine)) ? $engine : '';
         }
 
         if (isset($this->file_extensions[$template_type])) {

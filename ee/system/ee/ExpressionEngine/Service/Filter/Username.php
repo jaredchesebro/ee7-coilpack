@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -175,9 +175,9 @@ class Username extends Filter
         if (is_null($value)) {
             $value = $this->value();
 
-            $value = (array_key_exists($value, $this->options)) ?
-                $this->options[$value] :
-                $value;
+            if ($value !== null && array_key_exists($value, $this->options)) {
+                $value = $this->options[$value];
+            }
         }
 
         // Create a filter URL without this filter (per-filter clear).

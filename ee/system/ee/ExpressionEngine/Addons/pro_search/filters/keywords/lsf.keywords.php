@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -1507,6 +1507,9 @@ class Pro_search_filter_keywords extends Pro_search_filter
     {
         // Load typo lib
         ee()->load->library('typography');
+
+        //inject some whitespace between tags to prevent concatenation
+        $str = str_replace('<', ' <', $str);
 
         // Strip tags first
         $str = strip_tags($str);

@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -88,7 +88,7 @@ class HasAndBelongsToMany extends Relation
     {
         list($from, $to) = $this->getKeys();
 
-        $from_alias = str_replace(':', '_m_', $source->getName());
+        $from_alias = str_replace(':', '_m_', (string) $source->getName());
         $pivot_table = $this->pivot['table'];
         $pivot_as = "{$from_alias}_{$to_alias}_{$pivot_table}";
 

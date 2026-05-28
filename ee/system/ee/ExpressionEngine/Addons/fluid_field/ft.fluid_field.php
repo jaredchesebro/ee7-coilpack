@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -683,7 +683,7 @@ class Fluid_field_ft extends EE_Fieldtype
 
                         $group_key = $key;
 
-                        if (array_key_exists($fluid_field_data_id, $field_group_map)) {
+                        if ($fluid_field_data_id !== null && array_key_exists($fluid_field_data_id, $field_group_map)) {
                             $group = $field_group_map[$fluid_field_data_id]->ChannelFieldGroup;
                             $group_key = $field_group_map[$fluid_field_data_id]->group;
                         } else {

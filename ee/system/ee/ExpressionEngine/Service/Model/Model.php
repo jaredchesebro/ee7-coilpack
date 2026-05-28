@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -320,7 +320,7 @@ class Model extends SerializableEntity implements Subscriber, ValidationAware
     {
         $pk = $this->getPrimaryKey();
 
-        if (isset($data[$pk])) {
+        if ($pk !== null && $pk !== '' && isset($data[$pk])) {
             $this->_new = false;
         }
 
@@ -991,6 +991,10 @@ class Model extends SerializableEntity implements Subscriber, ValidationAware
      */
     public function addForeignKey($key, $assoc_name)
     {
+        if ($key === null || $key === '') {
+            return;
+        }
+
         $this->_foreign_keys[$key] = $assoc_name;
     }
 

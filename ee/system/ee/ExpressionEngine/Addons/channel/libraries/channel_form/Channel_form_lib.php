@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 require_once PATH_ADDONS . 'channel/libraries/channel_form/Channel_form_exception.php';
@@ -2126,8 +2126,12 @@ GRID_FALLBACK;
             // and now into safecracker legacy format. Good grief, why does it
             // group them by column name?
             foreach ($rows as $row) {
-                $site_id = $row['site_id'];
-                $channel_id = $row['channel_id'];
+                $site_id = $row['site_id'] ?? null;
+                $channel_id = $row['channel_id'] ?? null;
+
+                if ($site_id === null || $channel_id === null) {
+                    continue;
+                }
 
                 unset(
                     $row['site_id'],
@@ -2999,7 +3003,11 @@ GRID_FALLBACK;
             $data = base64_decode((string) $data);
         }
 
-        $data = @unserialize($data);
+        if ($data === null || $data === '') {
+            return array();
+        }
+
+        $data = @unserialize((string) $data);
 
         return (is_array($data)) ? $data : array();
     }

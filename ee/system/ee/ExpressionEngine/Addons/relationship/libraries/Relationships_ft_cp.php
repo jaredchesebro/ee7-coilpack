@@ -4,7 +4,7 @@
  * ExpressionEngine (https://expressionengine.com)
  *
  * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2023, Packet Tide, LLC (https://www.packettide.com)
+ * @copyright Copyright (c) 2003-2026, Packet Tide, LLC (https://www.packettide.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
 
@@ -275,8 +275,13 @@ class Relationships_ft_cp
         $status_options = array();
 
         foreach ($statuses->all() as $status) {
+            if ($status->status === null || $status->status === '') {
+                continue;
+            }
+
             $status_name = ($status->status == 'closed' or $status->status == 'open') ? lang($status->status) : $status->status;
-            $status_options[$status->status] = $status_name;
+            $status_key = $status->status ?? '';
+            $status_options[$status_key] = $status_name;
         }
 
         $this->all_statuses = array(
