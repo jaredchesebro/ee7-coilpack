@@ -6,7 +6,7 @@
 
 $config = require __DIR__ . '/config.master.php';
 
-$config['app_version'] = '7.5.23';
+$config['app_version'] = '7.5.24';
 $config['site_license_key'] = env('EE_SITE_LICENSE_KEY');
 
 $global = [
