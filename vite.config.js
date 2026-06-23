@@ -61,6 +61,7 @@ export default defineConfig({
                 'color-functions',  // red(), green(), blue() deprecated
                 'global-builtin',   // Global functions like mix() deprecated
                 'legacy-js-api',    // Old JavaScript API usage
+                'if-function',      // Sass if() syntax deprecated (Bootstrap _functions.scss)
             ],
             },
         },

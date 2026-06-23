@@ -11,11 +11,11 @@
         "production": "npm run build"
     },
     "devDependencies": {
-        "laravel-vite-plugin": "^2.0",
-        "sass": "^1.77",
-        "vite": "^7.3",
+        "laravel-vite-plugin": "^3.1",
+        "sass": "^1.101",
+        "vite": "^8.1",
         "vite-plugin-full-reload": "^1.2",
-        "vite-plugin-static-copy": "^3.1"
+        "vite-plugin-static-copy": "^4.1"
     },
     "dependencies": {
         "@popperjs/core": "^2.11",
