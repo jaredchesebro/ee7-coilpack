@@ -4,4 +4,20 @@
 ## Usage: eecli
 ## Example: ddev eecli <command>
 
-php artisan eecli "$@"
+# Coilpack registers EE's -y option as --y, but EE only accepts -y, so neither
+# form makes it through. Strip it and answer EE's confirm prompts via stdin.
+args=()
+auto_yes=false
+for arg in "$@"; do
+    if [[ "$arg" == "-y" || "$arg" == "--y" ]]; then
+        auto_yes=true
+    else
+        args+=("$arg")
+    fi
+done
+
+if $auto_yes; then
+    yes y | php artisan eecli "${args[@]}"
+else
+    php artisan eecli "${args[@]}"
+fi
